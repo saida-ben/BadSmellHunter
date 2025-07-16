@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Project>
+    <ProjectName>C:\Users\benza\Documents\eclipse_workspce\prj_reflexion</ProjectName>
+    <Packages>
+        <Package name="org.mql.java.ui">
+            <Class name="DrawingPanel">
+                <Superclass>JPanel</Superclass>
+                <Methods>
+                    <Method name="drawAggregation">void</Method>
+                    <Method name="drawComposition">void</Method>
+                    <Method name="getRelationOffset">Point</Method>
+                    <Method name="drawInheritance">void</Method>
+                    <Method name="drawRelations">void</Method>
+                    <Method name="collectAllClasses">List</Method>
+                    <Method name="renderClassBox">void</Method>
+                    <Method name="paintComponent">void</Method>
+                    <Method name="renderClassesWithIntelligentSpacing">void</Method>
+                </Methods>
+            </Class>
+            <Class name="UMLDiagramViewer">
+                <Superclass>JFrame</Superclass>
+                <Methods/>
+            </Class>
+        </Package>
+        <Package name="org.mql.java.models">
+            <Class name="AnnotationInfo">
+                <Superclass/>
+                <Methods>
+                    <Method name="getName">String</Method>
+                    <Method name="toString">String</Method>
+                    <Method name="setName">void</Method>
+                </Methods>
+            </Class>
+            <Class name="AttributeInfo">
+                <Superclass/>
+                <Methods>
+                    <Method name="getName">String</Method>
+                    <Method name="getType">String</Method>
+                </Methods>
+            </Class>
+            <Class name="ClassInfo">
+                <Superclass/>
+                <Methods>
+                    <Method name="addField">void</Method>
+                    <Method name="getRelations">List</Method>
+                    <Method name="addInterface">void</Method>
+                    <Method name="addRelation">void</Method>
+                    <Method name="addAnnotation">void</Method>
+                    <Method name="getName">String</Method>
+                    <Method name="getSuperclass">String</Method>
+                    <Method name="getInterfaces">List</Method>
+                    <Method name="getFields">List</Method>
+                    <Method name="getMethods">List</Method>
+                    <Method name="getAnnotations">List</Method>
+                    <Method name="addMethod">void</Method>
+                    <Method name="setSuperclass">void</Method>
+                </Methods>
+            </Class>
+            <Class name="EnumInfo">
+                <Superclass/>
+                <Methods>
+                    <Method name="getValues">List</Method>
+                    <Method name="setValues">void</Method>
+                    <Method name="getName">String</Method>
+                    <Method name="setName">void</Method>
+                </Methods>
+            </Class>
+            <Class name="FieldModel">
+                <Superclass/>
+                <Methods>
+                    <Method name="getName">String</Method>
+                    <Method name="getType">String</Method>
+                </Methods>
+            </Class>
+            <Class name="InterfaceInfo">
+                <Superclass/>
+                <Methods>
+                    <Method name="getName">String</Method>
+                    <Method name="setName">void</Method>
+                </Methods>
+            </Class>
+            <Class name="MethodInfo">
+                <Superclass/>
+                <Methods>
+                    <Method name="addParameter">void</Method>
+                    <Method name="setSourceCode">void</Method>
+                    <Method name="getSourceCode">String</Method>
+                    <Method name="countLines">int</Method>
+                    <Method name="getName">String</Method>
+                    <Method name="getReturnType">String</Method>
+                    <Method name="getParameters">List</Method>
+                </Methods>
+            </Class>
+            <Class name="PackageInfo">
+                <Superclass/>
+                <Methods>
+                    <Method name="getRelations">List</Method>
+                    <Method name="addRelation">void</Method>
+                    <Method name="getName">String</Method>
+                    <Method name="toString">String</Method>
+                    <Method name="getClasses">List</Method>
+                    <Method name="addClass">void</Method>
+                </Methods>
+            </Class>
+            <Class name="ParameterInfo">
+                <Superclass/>
+                <Methods>
+                    <Method name="getName">String</Method>
+                    <Method name="getType">String</Method>
+                </Methods>
+            </Class>
+            <Class name="Project">
+                <Superclass/>
+                <Methods>
+                    <Method name="addPackage">void</Method>
+                    <Method name="printRelations">void</Method>
+                    <Method name="getName">String</Method>
+                    <Method name="getPackages">List</Method>
+                </Methods>
+            </Class>
+            <Class name="Relation">
+                <Superclass/>
+                <Methods>
+                    <Method name="toString">String</Method>
+                    <Method name="getType">String</Method>
+                    <Method name="getTarget">String</Method>
+                    <Method name="getLabel">String</Method>
+                    <Method name="getSource">String</Method>
+                </Methods>
+            </Class>
+        </Package>
+        <Package name="org.mql.java.tests">
+            <Class name="GodClassTest">
+                <Superclass/>
+                <Methods>
+                    <Method name="operation10">void</Method>
+                    <Method name="operation14">void</Method>
+                    <Method name="operation16">void</Method>
+                    <Method name="operation17">void</Method>
+                    <Method name="operation18">void</Method>
+                    <Method name="operation20">void</Method>
+                    <Method name="operation19">void</Method>
+                    <Method name="operation21">void</Method>
+                    <Method name="operation12">void</Method>
+                    <Method name="operation11">void</Method>
+                    <Method name="operation15">void</Method>
+                    <Method name="operation13">void</Method>
+                    <Method name="operation6">void</Method>
+                    <Method name="operation2">void</Method>
+                    <Method name="operation5">void</Method>
+                    <Method name="operation8">void</Method>
+                    <Method name="operation9">void</Method>
+                    <Method name="operation3">void</Method>
+                    <Method name="operation4">void</Method>
+                    <Method name="operation7">void</Method>
+                    <Method name="operation1">void</Method>
+                </Methods>
+            </Class>
+            <Class name="LargeClass">
+                <Superclass/>
+                <Methods>
+                    <Method name="m8">void</Method>
+                    <Method name="m9">void</Method>
+                    <Method name="m5">void</Method>
+                    <Method name="m6">void</Method>
+                    <Method name="m4">void</Method>
+                    <Method name="m7">void</Method>
+                    <Method name="m11">void</Method>
+                    <Method name="m10">void</Method>
+                    <Method name="m17">void</Method>
+                    <Method name="m13">void</Method>
+                    <Method name="m14">void</Method>
+                    <Method name="m21">void</Method>
+                    <Method name="m19">void</Method>
+                    <Method name="m15">void</Method>
+                    <Method name="m20">void</Method>
+                    <Method name="m16">void</Method>
+                    <Method name="m12">void</Method>
+                    <Method name="m18">void</Method>
+                    <Method name="m2">void</Method>
+                    <Method name="m1">void</Method>
+                    <Method name="m3">void</Method>
+                </Methods>
+            </Class>
+            <Class name="LongMethodTest">
+                <Superclass/>
+                <Methods>
+                    <Method name="veryLongMethod">void</Method>
+                    <Method name="longMethodWithTooManyParams">void</Method>
+                </Methods>
+            </Class>
+        </Package>
+        <Package name="org.mql.java.xml">
+            <Class name="XMLParser">
+                <Superclass/>
+                <Methods>
+                    <Method name="parseClass">ClassInfo</Method>
+                    <Method name="displayModel">void</Method>
+                    <Method name="parsePackage">PackageInfo</Method>
+                    <Method name="parse">Project</Method>
+                    <Method name="parseMethod">MethodInfo</Method>
+                </Methods>
+            </Class>
+            <Class name="XMLWriter">
+                <Superclass/>
+                <Methods>
+                    <Method name="writeProjectToXML">void</Method>
+                </Methods>
+            </Class>
+        </Package>
+        <Package name="org.mql.java.reflection">
+            <Class name="Client">
+                <Superclass/>
+                <Methods>
+                    <Method name="exp01">void</Method>
+                    <Method name="main">void</Method>
+                </Methods>
+            </Class>
+            <Class name="ConsoleDisplay">
+                <Superclass/>
+                <Methods>
+                    <Method name="displayProjectInfo">void</Method>
+                </Methods>
+            </Class>
+            <Class name="Extractor">
+                <Superclass/>
+                <Methods>
+                    <Method name="convertToQualifiedName">String</Method>
+                    <Method name="extractProject">Project</Method>
+                    <Method name="findClassDirectory">File</Method>
+                    <Method name="extractClass">ClassInfo</Method>
+                    <Method name="exploreDirectory">void</Method>
+                </Methods>
+            </Class>
+            <Class name="ProjectScanner">
+                <Superclass/>
+                <Methods>
+                    <Method name="scanJavaFiles">List</Method>
+                </Methods>
+            </Class>
+            <Class name="XmiGenerator">
+                <Superclass/>
+                <Methods>
+                    <Method name="generateXmi">void</Method>
+                    <Method name="generateXmiContent">String</Method>
+                </Methods>
+            </Class>
+        </Package>
+        <Package name="org.mql.java.analysis">
+            <Class name="BadSmellDetector">
+                <Superclass/>
+                <Methods>
+                    <Method name="detect">List</Method>
+                </Methods>
+            </Class>
+        </Package>
+    </Packages>
+</Project>

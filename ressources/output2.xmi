@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XMI xmi.version="2.1" xmlns:xmi="http://www.omg.org/XMI" xmlns:uml="http://www.omg.org/spec/UML/20090901">
+  <uml:Package name="org.mql.java.ui">
+<uml:Class name="DrawingPanel">
+<uml:Property name="serialVersionUID" type="long"/>
+<uml:Property name="this$0" type="UMLDiagramViewer"/>
+<uml:Operation name="drawAggregation">
+<uml:Parameter name="arg0" type="Graphics2D"/>
+<uml:Parameter name="arg1" type="Point"/>
+<uml:Parameter name="arg2" type="Point"/>
+</uml:Operation>
+<uml:Operation name="drawComposition">
+<uml:Parameter name="arg0" type="Graphics2D"/>
+<uml:Parameter name="arg1" type="Point"/>
+<uml:Parameter name="arg2" type="Point"/>
+</uml:Operation>
+<uml:Operation name="getRelationOffset">
+<uml:Parameter name="arg0" type="List"/>
+</uml:Operation>
+<uml:Operation name="drawInheritance">
+<uml:Parameter name="arg0" type="Graphics2D"/>
+<uml:Parameter name="arg1" type="Point"/>
+<uml:Parameter name="arg2" type="Point"/>
+</uml:Operation>
+<uml:Operation name="drawRelations">
+<uml:Parameter name="arg0" type="Graphics2D"/>
+</uml:Operation>
+<uml:Operation name="collectAllClasses">
+</uml:Operation>
+<uml:Operation name="renderClassBox">
+<uml:Parameter name="arg0" type="Graphics2D"/>
+<uml:Parameter name="arg1" type="ClassInfo"/>
+<uml:Parameter name="arg2" type="int"/>
+<uml:Parameter name="arg3" type="int"/>
+</uml:Operation>
+<uml:Operation name="paintComponent">
+<uml:Parameter name="arg0" type="Graphics"/>
+</uml:Operation>
+<uml:Operation name="renderClassesWithIntelligentSpacing">
+<uml:Parameter name="arg0" type="Graphics2D"/>
+</uml:Operation>
+</uml:Class>
+<uml:Class name="UMLDiagramViewer">
+<uml:Property name="serialVersionUID" type="long"/>
+<uml:Property name="FRAME_WIDTH" type="int"/>
+<uml:Property name="FRAME_HEIGHT" type="int"/>
+<uml:Property name="CLASS_BOX_WIDTH" type="int"/>
+<uml:Property name="CLASS_BOX_HEIGHT" type="int"/>
+<uml:Property name="HORIZONTAL_SPACING" type="int"/>
+<uml:Property name="VERTICAL_SPACING" type="int"/>
+<uml:Property name="project" type="Project"/>
+<uml:Property name="classPositions" type="Map"/>
+<uml:Property name="drawingPanel" type="DrawingPanel"/>
+</uml:Class>
+</uml:Package>
+  <uml:Package name="org.mql.java.models">
+<uml:Class name="AnnotationInfo">
+<uml:Property name="name" type="String"/>
+<uml:Operation name="getName">
+</uml:Operation>
+<uml:Operation name="toString">
+</uml:Operation>
+<uml:Operation name="setName">
+<uml:Parameter name="arg0" type="String"/>
+</uml:Operation>
+</uml:Class>
+<uml:Class name="AttributeInfo">
+<uml:Property name="name" type="String"/>
+<uml:Property name="type" type="String"/>
+<uml:Operation name="getName">
+</uml:Operation>
+<uml:Operation name="getType">
+</uml:Operation>
+</uml:Class>
+<uml:Class name="ClassInfo">
+<uml:Property name="name" type="String"/>
+<uml:Property name="superclass" type="String"/>
+<uml:Property name="isInterface" type="boolean"/>
+<uml:Property name="isEnum" type="boolean"/>
+<uml:Property name="interfaces" type="List"/>
+<uml:Property name="fields" type="List"/>
+<uml:Property name="methods" type="List"/>
+<uml:Property name="annotations" type="List"/>
+<uml:Property name="relations" type="List"/>
+<uml:Operation name="addField">
+<uml:Parameter name="arg0" type="FieldModel"/>
+</uml:Operation>
+<uml:Operation name="getRelations">
+</uml:Operation>
+<uml:Operation name="addInterface">
+<uml:Parameter name="arg0" type="String"/>
+</uml:Operation>
+<uml:Operation name="addRelation">
+<uml:Parameter name="arg0" type="Relation"/>
+</uml:Operation>
+<uml:Operation name="addAnnotation">
+<uml:Parameter name="arg0" type="AnnotationInfo"/>
+</uml:Operation>
+<uml:Operation name="getName">
+</uml:Operation>
+<uml:Operation name="getSuperclass">
+</uml:Operation>
+<uml:Operation name="getInterfaces">
+</uml:Operation>
+<uml:Operation name="getFields">
+</uml:Operation>
+<uml:Operation name="getMethods">
+</uml:Operation>
+<uml:Operation name="getAnnotations">
+</uml:Operation>
+<uml:Operation name="addMethod">
+<uml:Parameter name="arg0" type="MethodInfo"/>
+</uml:Operation>
+<uml:Operation name="setSuperclass">
+<uml:Parameter name="arg0" type="String"/>
+</uml:Operation>
+</uml:Class>
+<uml:Class name="EnumInfo">
+<uml:Property name="name" type="String"/>
+<uml:Property name="values" type="List"/>
+<uml:Operation name="getValues">
+</uml:Operation>
+<uml:Operation name="setValues">
+<uml:Parameter name="arg0" type="List"/>
+</uml:Operation>
+<uml:Operation name="getName">
+</uml:Operation>
+<uml:Operation name="setName">
+<uml:Parameter name="arg0" type="String"/>
+</uml:Operation>
+</uml:Class>
+<uml:Class name="FieldModel">
+<uml:Property name="name" type="String"/>
+<uml:Property name="type" type="String"/>
+<uml:Operation name="getName">
+</uml:Operation>
+<uml:Operation name="getType">
+</uml:Operation>
+</uml:Class>
+<uml:Class name="InterfaceInfo">
+<uml:Property name="name" type="String"/>
+<uml:Operation name="getName">
+</uml:Operation>
+<uml:Operation name="setName">
+<uml:Parameter name="arg0" type="String"/>
+</uml:Operation>
+</uml:Class>
+<uml:Class name="MethodInfo">
+<uml:Property name="name" type="String"/>
+<uml:Property name="returnType" type="String"/>
+<uml:Property name="parameters" type="List"/>
+<uml:Property name="sourceCode" type="String"/>
+<uml:Operation name="addParameter">
+<uml:Parameter name="arg0" type="ParameterInfo"/>
+</uml:Operation>
+<uml:Operation name="setSourceCode">
+<uml:Parameter name="arg0" type="String"/>
+</uml:Operation>
+<uml:Operation name="getSourceCode">
+</uml:Operation>
+<uml:Operation name="countLines">
+</uml:Operation>
+<uml:Operation name="getName">
+</uml:Operation>
+<uml:Operation name="getReturnType">
+</uml:Operation>
+<uml:Operation name="getParameters">
+</uml:Operation>
+</uml:Class>
+<uml:Class name="PackageInfo">
+<uml:Property name="name" type="String"/>
+<uml:Property name="classes" type="List"/>
+<uml:Property name="relations" type="List"/>
+<uml:Operation name="getRelations">
+</uml:Operation>
+<uml:Operation name="addRelation">
+<uml:Parameter name="arg0" type="Relation"/>
+</uml:Operation>
+<uml:Operation name="getName">
+</uml:Operation>
+<uml:Operation name="toString">
+</uml:Operation>
+<uml:Operation name="getClasses">
+</uml:Operation>
+<uml:Operation name="addClass">
+<uml:Parameter name="arg0" type="ClassInfo"/>
+</uml:Operation>
+</uml:Class>
+<uml:Class name="ParameterInfo">
+<uml:Property name="name" type="String"/>
+<uml:Property name="type" type="String"/>
+<uml:Operation name="getName">
+</uml:Operation>
+<uml:Operation name="getType">
+</uml:Operation>
+</uml:Class>
+<uml:Class name="Project">
+<uml:Property name="name" type="String"/>
+<uml:Property name="packages" type="List"/>
+<uml:Property name="classes" type="List"/>
+<uml:Operation name="addPackage">
+<uml:Parameter name="arg0" type="PackageInfo"/>
+</uml:Operation>
+<uml:Operation name="printRelations">
+</uml:Operation>
+<uml:Operation name="getName">
+</uml:Operation>
+<uml:Operation name="getPackages">
+</uml:Operation>
+</uml:Class>
+<uml:Class name="Relation">
+<uml:Property name="source" type="String"/>
+<uml:Property name="target" type="String"/>
+<uml:Property name="type" type="String"/>
+<uml:Property name="label" type="String"/>
+<uml:Operation name="toString">
+</uml:Operation>
+<uml:Operation name="getType">
+</uml:Operation>
+<uml:Operation name="getTarget">
+</uml:Operation>
+<uml:Operation name="getLabel">
+</uml:Operation>
+<uml:Operation name="getSource">
+</uml:Operation>
+</uml:Class>
+</uml:Package>
+  <uml:Package name="org.mql.java.tests">
+<uml:Class name="GodClassTest">
+<uml:Property name="data1" type="String"/>
+<uml:Property name="data2" type="String"/>
+<uml:Property name="data3" type="String"/>
+<uml:Property name="data4" type="String"/>
+<uml:Property name="data5" type="String"/>
+<uml:Property name="data6" type="String"/>
+<uml:Property name="data7" type="String"/>
+<uml:Property name="data8" type="String"/>
+<uml:Property name="data9" type="String"/>
+<uml:Property name="data10" type="String"/>
+<uml:Property name="data11" type="String"/>
+<uml:Property name="data12" type="String"/>
+<uml:Property name="data13" type="String"/>
+<uml:Property name="data14" type="String"/>
+<uml:Property name="data15" type="String"/>
+<uml:Operation name="operation10">
+</uml:Operation>
+<uml:Operation name="operation14">
+</uml:Operation>
+<uml:Operation name="operation16">
+</uml:Operation>
+<uml:Operation name="operation17">
+</uml:Operation>
+<uml:Operation name="operation18">
+</uml:Operation>
+<uml:Operation name="operation20">
+</uml:Operation>
+<uml:Operation name="operation19">
+</uml:Operation>
+<uml:Operation name="operation21">
+</uml:Operation>
+<uml:Operation name="operation12">
+</uml:Operation>
+<uml:Operation name="operation11">
+</uml:Operation>
+<uml:Operation name="operation15">
+</uml:Operation>
+<uml:Operation name="operation13">
+</uml:Operation>
+<uml:Operation name="operation6">
+</uml:Operation>
+<uml:Operation name="operation2">
+</uml:Operation>
+<uml:Operation name="operation5">
+</uml:Operation>
+<uml:Operation name="operation8">
+</uml:Operation>
+<uml:Operation name="operation9">
+</uml:Operation>
+<uml:Operation name="operation3">
+</uml:Operation>
+<uml:Operation name="operation4">
+</uml:Operation>
+<uml:Operation name="operation7">
+</uml:Operation>
+<uml:Operation name="operation1">
+</uml:Operation>
+</uml:Class>
+<uml:Class name="LargeClass">
+<uml:Operation name="m8">
+</uml:Operation>
+<uml:Operation name="m9">
+</uml:Operation>
+<uml:Operation name="m5">
+</uml:Operation>
+<uml:Operation name="m6">
+</uml:Operation>
+<uml:Operation name="m4">
+</uml:Operation>
+<uml:Operation name="m7">
+</uml:Operation>
+<uml:Operation name="m11">
+</uml:Operation>
+<uml:Operation name="m10">
+</uml:Operation>
+<uml:Operation name="m17">
+</uml:Operation>
+<uml:Operation name="m13">
+</uml:Operation>
+<uml:Operation name="m14">
+</uml:Operation>
+<uml:Operation name="m21">
+</uml:Operation>
+<uml:Operation name="m19">
+</uml:Operation>
+<uml:Operation name="m15">
+</uml:Operation>
+<uml:Operation name="m20">
+</uml:Operation>
+<uml:Operation name="m16">
+</uml:Operation>
+<uml:Operation name="m12">
+</uml:Operation>
+<uml:Operation name="m18">
+</uml:Operation>
+<uml:Operation name="m2">
+</uml:Operation>
+<uml:Operation name="m1">
+</uml:Operation>
+<uml:Operation name="m3">
+</uml:Operation>
+</uml:Class>
+<uml:Class name="LongMethodTest">
+<uml:Operation name="veryLongMethod">
+</uml:Operation>
+<uml:Operation name="longMethodWithTooManyParams">
+<uml:Parameter name="arg0" type="String"/>
+<uml:Parameter name="arg1" type="String"/>
+<uml:Parameter name="arg2" type="int"/>
+<uml:Parameter name="arg3" type="double"/>
+<uml:Parameter name="arg4" type="boolean"/>
+<uml:Parameter name="arg5" type="char"/>
+</uml:Operation>
+</uml:Class>
+</uml:Package>
+  <uml:Package name="org.mql.java.xml">
+<uml:Class name="XMLParser">
+<uml:Operation name="parseClass">
+<uml:Parameter name="arg0" type="Element"/>
+</uml:Operation>
+<uml:Operation name="displayModel">
+<uml:Parameter name="arg0" type="Project"/>
+</uml:Operation>
+<uml:Operation name="parsePackage">
+<uml:Parameter name="arg0" type="Element"/>
+</uml:Operation>
+<uml:Operation name="parse">
+<uml:Parameter name="arg0" type="String"/>
+</uml:Operation>
+<uml:Operation name="parseMethod">
+<uml:Parameter name="arg0" type="Element"/>
+</uml:Operation>
+</uml:Class>
+<uml:Class name="XMLWriter">
+<uml:Operation name="writeProjectToXML">
+<uml:Parameter name="arg0" type="Project"/>
+<uml:Parameter name="arg1" type="String"/>
+</uml:Operation>
+</uml:Class>
+</uml:Package>
+  <uml:Package name="org.mql.java.reflection">
+<uml:Class name="Client">
+<uml:Operation name="exp01">
+</uml:Operation>
+<uml:Operation name="main">
+<uml:Parameter name="arg0" type="String[]"/>
+</uml:Operation>
+</uml:Class>
+<uml:Class name="ConsoleDisplay">
+<uml:Operation name="displayProjectInfo">
+<uml:Parameter name="arg0" type="Project"/>
+</uml:Operation>
+</uml:Class>
+<uml:Class name="Extractor">
+<uml:Operation name="convertToQualifiedName">
+<uml:Parameter name="arg0" type="String"/>
+<uml:Parameter name="arg1" type="String"/>
+</uml:Operation>
+<uml:Operation name="extractProject">
+<uml:Parameter name="arg0" type="String"/>
+</uml:Operation>
+<uml:Operation name="findClassDirectory">
+<uml:Parameter name="arg0" type="File"/>
+</uml:Operation>
+<uml:Operation name="extractClass">
+<uml:Parameter name="arg0" type="Class"/>
+</uml:Operation>
+<uml:Operation name="exploreDirectory">
+<uml:Parameter name="arg0" type="File"/>
+<uml:Parameter name="arg1" type="String"/>
+<uml:Parameter name="arg2" type="Map"/>
+</uml:Operation>
+</uml:Class>
+<uml:Class name="ProjectScanner">
+<uml:Operation name="scanJavaFiles">
+<uml:Parameter name="arg0" type="String"/>
+</uml:Operation>
+</uml:Class>
+<uml:Class name="XmiGenerator">
+<uml:Operation name="generateXmi">
+<uml:Parameter name="arg0" type="Project"/>
+<uml:Parameter name="arg1" type="String"/>
+</uml:Operation>
+<uml:Operation name="generateXmiContent">
+<uml:Parameter name="arg0" type="Project"/>
+</uml:Operation>
+</uml:Class>
+</uml:Package>
+  <uml:Package name="org.mql.java.analysis">
+<uml:Class name="BadSmellDetector">
+<uml:Operation name="detect">
+<uml:Parameter name="arg0" type="Project"/>
+</uml:Operation>
+</uml:Class>
+</uml:Package>
+</XMI>

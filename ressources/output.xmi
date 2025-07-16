@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XMI xmi.version="2.1" xmlns:xmi="http://www.omg.org/XMI" xmlns:uml="http://www.omg.org/spec/UML/20090901">
+  <uml:Package name="models">
+    <uml:Class name="Address">
+      <uml:Operation name="toString">
+      </uml:Operation>
+    </uml:Class>
+    <uml:Class name="Author">
+      <uml:Operation name="getName">
+      </uml:Operation>
+      <uml:Operation name="addBook">
+        <uml:Parameter name="arg0" type="Book"/>
+      </uml:Operation>
+    </uml:Class>
+    <uml:Class name="Book">
+      <uml:Operation name="getTitle">
+      </uml:Operation>
+      <uml:Operation name="getAuthor">
+      </uml:Operation>
+    </uml:Class>
+    <uml:Class name="Library">
+      <uml:Operation name="addSection">
+        <uml:Parameter name="arg0" type="Section"/>
+      </uml:Operation>
+      <uml:Operation name="displayLibraryInfo">
+      </uml:Operation>
+    </uml:Class>
+    <uml:Class name="LibrarySystem">
+      <uml:Operation name="main">
+        <uml:Parameter name="arg0" type="String[]"/>
+      </uml:Operation>
+    </uml:Class>
+    <uml:Class name="Section">
+      <uml:Operation name="addBook">
+        <uml:Parameter name="arg0" type="Book"/>
+      </uml:Operation>
+      <uml:Operation name="displaySectionInfo">
+      </uml:Operation>
+    </uml:Class>
+  </uml:Package>
+</XMI>
