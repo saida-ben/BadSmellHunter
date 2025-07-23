@@ -1,7 +1,11 @@
 package org.mql.java.models;
 
 public class Relation {
-    private String source;
+    public class RelationType {
+
+	}
+
+	private String source;
     private String target;
     private String type;
     private String label;

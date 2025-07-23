@@ -13,11 +13,12 @@ public class ClassInfo {
     private List<MethodInfo> methods;
     private List<AnnotationInfo> annotations;
     private List<Relation> relations; 
- 
+    private int x, y;
+
     public ClassInfo(String name, boolean isInterface, boolean isEnum) {
         this.name = name;
-        this.isInterface = isInterface;
-        this.isEnum = isEnum;
+        this.setInterface(isInterface);
+        this.setEnum(isEnum);
         this.interfaces = new ArrayList<>();
         this.fields = new ArrayList<>();
         this.methods = new ArrayList<>();
@@ -25,7 +26,19 @@ public class ClassInfo {
         this.relations = new ArrayList<>(); 
 
     }
-  
+    public ClassInfo(String name, boolean isInterface, boolean isEnum, int x, int y) {
+        this.name = name;
+        this.setInterface(isInterface);
+        this.setEnum(isEnum);
+        this.interfaces = new ArrayList<>();
+        this.fields = new ArrayList<>();
+        this.methods = new ArrayList<>();
+        this.annotations = new ArrayList<>();
+        this.relations = new ArrayList<>(); 
+        this.x = x;
+        this.y = y;
+
+    }
     public void setSuperclass(String superclass) {
         this.superclass = superclass;
     }
@@ -81,4 +94,50 @@ public class ClassInfo {
     public List<Relation> getRelations() { 
         return relations;
     }
+
+	public boolean isEnum() {
+		return isEnum;
+	}
+
+	public void setEnum(boolean isEnum) {
+		this.isEnum = isEnum;
+	}
+
+	public boolean isInterface() {
+		return isInterface;
+	}
+
+	public void setInterface(boolean isInterface) {
+		this.isInterface = isInterface;
+	}
+
+	@Override
+	public String toString() {
+		return "ClassInfo [name=" + name + ", superclass=" + superclass + ", isInterface=" + isInterface + ", isEnum="
+				+ isEnum + ", interfaces=" + interfaces + ", fields=" + fields + ", methods=" + methods
+				+ ", annotations=" + annotations + ", relations=" + relations + "]";
+	}
+
+	public int getX() {
+		return x;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+	public void setLocation(int x, int y) {
+	    this.x = x;
+	    this.y = y;
+	}
+	
+	
+	
 }

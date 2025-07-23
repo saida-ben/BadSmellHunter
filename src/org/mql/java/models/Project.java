@@ -32,4 +32,15 @@ public class Project {
             }
         }
     }
+
+    public ClassInfo findClassByName(String name) {
+        for (PackageInfo pkg : packages) {
+            for (ClassInfo clazz : pkg.getClasses()) {
+                if (clazz.getName().equals(name) || clazz.getName().endsWith("." + name)) {
+                    return clazz;
+                }
+            }
+        }
+        return null;
+    }
 }

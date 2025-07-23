@@ -1,6 +1,6 @@
 package org.mql.java.tests;
 
-public class LongMethodTest {
+public class LongMethodTest extends LargeClass {
     public void veryLongMethod() {
         for (int i = 0; i < 50; i++) {
             System.out.println("Line " + i);

@@ -7,7 +7,8 @@ import javax.swing.SwingUtilities;
 
 import org.mql.java.analysis.BadSmellDetector;
 import org.mql.java.models.*;
-import org.mql.java.ui.UMLDiagramViewer;
+import org.mql.java.ui.UMLDiagramViewer1;
+import org.mql.java.ui.UMLDiagramViewer2;
 import org.mql.java.xml.XMLParser;
 import org.mql.java.xml.XMLWriter;
 
@@ -20,15 +21,16 @@ public class Client {
 	}
     	
 	private void exp01() {
-		String projectPath = "C:\\Users\\benza\\Documents\\eclipse_workspce\\prj_reflexion"; 
+		String projectPath = "C:\\Users\\benza\\Documents\\eclipse_workspce\\projet_test"; 
 		String xmlFilePath = "C:\\Users\\benza\\Documents\\eclipse_workspce\\prj_reflexion\\ressources\\output.xml";
 		String outputXmiPath = "C:\\\\Users\\\\benza\\\\Documents\\\\eclipse_workspce\\\\prj_reflexion\\\\ressources\\\\output2.xmi";
 	    XMLParser parser = new XMLParser();
 
 	    Project xmlfile = null;
 		Project project = Extractor.extractProject(projectPath); 
-		//ConsoleDisplay.displayProjectInfo(project);
-    
+		ConsoleDisplay.displayProjectInfo(project);
+		SourceCodeAnalyzer.enrichWithSourceCode(project, "C:\\Users\\benza\\Documents\\eclipse_workspce\\projet_test\\src");
+
 		
 		
 		XMLWriter.writeProjectToXML(project, xmlFilePath); // Cela générera le fichier XML avec les informations extraites
@@ -66,12 +68,8 @@ public class Client {
 			System.out.println("smells = " + smell);
 		}
 
-		/*
-		 * 
-		SwingUtilities.invokeLater(() -> {
-			UMLDiagramViewer viewer = new UMLDiagramViewer(project);
-			viewer.setVisible(true);
-		});			 */
+		
+		SwingUtilities.invokeLater(() -> new UMLDiagramViewer2(project));		 
 
 }
 

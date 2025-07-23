@@ -20,9 +20,26 @@ public class LargeClass {
 	    public void m16() {}
 	    public void m17() {}
 	    public void m18() {}
-	    public void m19() {}
-	    public void m20() {}
+	    public void m19() {
+	    	System.out.println("s");
+	    	System.out.println("s");
+	    	System.out.println("s");
+	    	System.out.println("s");
+
+	    }
+	    public void m20() {
+	    	System.out.println("s");
+	    	System.out.println("s");
+	    	System.out.println("s");
+	    	System.out.println("s");
+	    }
 	    public void m21() {}
-	
+	    
+	    public void foo() {
+	            int x = 10;
+	            System.out.println(x);
+	    }
+	    
+
 
 }

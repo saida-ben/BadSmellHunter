@@ -86,56 +86,87 @@ public class Extractor {
     }
 
 
+
+
 private static ClassInfo extractClass(Class<?> clazz) {
     ClassInfo classInfo = new ClassInfo(clazz.getSimpleName(), clazz.isInterface(), clazz.isEnum());
 
     // Héritage
     if (clazz.getSuperclass() != null && !clazz.getSuperclass().equals(Object.class)) {
         classInfo.setSuperclass(clazz.getSuperclass().getSimpleName());
-        Relation inheritanceRelation = new Relation(clazz.getSimpleName(), clazz.getSuperclass().getSimpleName(), "Inheritance");
-        classInfo.addRelation(inheritanceRelation);
+        Relation inheritance = new Relation(clazz.getSimpleName(), clazz.getSuperclass().getSimpleName(), "Inheritance");
+        classInfo.addRelation(inheritance);
     }
 
-    // Implémentation d'interfaces
+    // Interfaces implémentées
     for (Class<?> iface : clazz.getInterfaces()) {
         classInfo.addInterface(iface.getSimpleName());
-        Relation interfaceRelation = new Relation(clazz.getSimpleName(), iface.getSimpleName(), "Implements");
-        classInfo.addRelation(interfaceRelation);
+        Relation implementsRel = new Relation(clazz.getSimpleName(), iface.getSimpleName(), "Implements");
+        classInfo.addRelation(implementsRel);
     }
 
-    // Champs pour association, agrégation et composition
+    // Attributs (champs) → Composition / Agrégation / Association
     for (Field field : clazz.getDeclaredFields()) {
-        String fieldType = field.getType().getSimpleName();
+        String fieldTypeName = field.getType().getSimpleName();
+        String fullTypeName = field.getType().getName();
 
-        // Vérifier si le champ est une collection (agrégation)
+        // Ignorer types primitifs et types système
+        if (field.getType().isPrimitive() || fullTypeName.startsWith("java.lang")) {
+            classInfo.addField(new FieldModel(field.getName(), fieldTypeName));
+            continue;
+        }
+
+        // Agrégation (Collection<T>)
         if (Collection.class.isAssignableFrom(field.getType())) {
-            // Agrégation
-            ParameterizedType genericType = (ParameterizedType) field.getGenericType();
-            Class<?> genericClass = (Class<?>) genericType.getActualTypeArguments()[0];
-            Relation aggregationRelation = new Relation(clazz.getSimpleName(), genericClass.getSimpleName(), "Aggregation");
-            classInfo.addRelation(aggregationRelation);
-        } else if (!field.getType().isPrimitive() && !fieldType.equals("String")) {
-            // Composition ou association simple
-            if (field.getDeclaringClass().equals(clazz)) {
-                // Si le champ est déclaré dans la classe actuelle, on considère cela comme une composition
-                Relation compositionRelation = new Relation(clazz.getSimpleName(), fieldType, "Composition");
-                classInfo.addRelation(compositionRelation);
-            } else {
-                // Sinon, c'est une association simple
-                Relation associationRelation = new Relation(clazz.getSimpleName(), fieldType, "Association");
-                classInfo.addRelation(associationRelation);
+            Type genericType = field.getGenericType();
+            if (genericType instanceof ParameterizedType) {
+                ParameterizedType pt = (ParameterizedType) genericType;
+                Type[] argTypes = pt.getActualTypeArguments();
+                if (argTypes.length > 0 && argTypes[0] instanceof Class<?>) {
+                    Class<?> genericClass = (Class<?>) argTypes[0];
+                    Relation aggregation = new Relation(clazz.getSimpleName(), genericClass.getSimpleName(), "Aggregation");
+                    classInfo.addRelation(aggregation);
+                }
+            }
+        } else {
+            // Composition ou association
+            Relation relation = new Relation(clazz.getSimpleName(), fieldTypeName, "Association");
+
+            // Tentative simple de distinguer composition
+            if (!Modifier.isStatic(field.getModifiers())) {
+                relation = new Relation(clazz.getSimpleName(), fieldTypeName, "Composition");
+            }
+
+            classInfo.addRelation(relation);
+        }
+
+        classInfo.addField(new FieldModel(field.getName(), fieldTypeName));
+    }
+
+    // Méthodes → Utilisation en paramètre ou retour
+    for (Method method : clazz.getDeclaredMethods()) {
+        MethodInfo methodInfo = new MethodInfo(method.getName(), method.getReturnType().getSimpleName());
+
+        // Paramètres
+        for (Parameter param : method.getParameters()) {
+            String paramType = param.getType().getSimpleName();
+            String fullParamType = param.getType().getName();
+
+            methodInfo.addParameter(new ParameterInfo(
+            	    param.isNamePresent() ? param.getName() : param.getType().getSimpleName().toLowerCase(),
+            	    param.getType().getSimpleName()));
+
+            if (!param.getType().isPrimitive() && !fullParamType.startsWith("java.")) {
+                Relation useRelation = new Relation(clazz.getSimpleName(), paramType, "Uses");
+                classInfo.addRelation(useRelation);
             }
         }
 
-        classInfo.addField(new FieldModel(field.getName(), fieldType));
-    }
-
-    for (Method method : clazz.getDeclaredMethods()) {
-        MethodInfo methodInfo = new MethodInfo(method.getName(), method.getReturnType().getSimpleName());
-        for (Parameter param : method.getParameters()) {
-            String paramName = param.getName();
-            String paramType = param.getType().getSimpleName();
-            methodInfo.addParameter(new ParameterInfo(paramName, paramType));
+        // Type de retour
+        Class<?> returnType = method.getReturnType();
+        if (!returnType.isPrimitive() && !returnType.getName().startsWith("java.")) {
+            Relation returnRelation = new Relation(clazz.getSimpleName(), returnType.getSimpleName(), "Uses");
+            classInfo.addRelation(returnRelation);
         }
 
         classInfo.addMethod(methodInfo);
@@ -143,8 +174,6 @@ private static ClassInfo extractClass(Class<?> clazz) {
 
     return classInfo;
 }
-
-
 
 
    private static String convertToQualifiedName(String filePath, String baseDirectory) {

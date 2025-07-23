@@ -6,7 +6,7 @@ import java.awt.*;
 import java.util.*;
 import java.util.List;
 
-public class UMLDiagramViewer extends JFrame {
+public class UMLDiagramViewer1 extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private static final int FRAME_WIDTH = 1200;
@@ -20,7 +20,7 @@ public class UMLDiagramViewer extends JFrame {
     private final Map<String, Point> classPositions = new HashMap<>();
     private final DrawingPanel drawingPanel;
 
-    public UMLDiagramViewer(Project project) {
+    public UMLDiagramViewer1(Project project) {
         this.project = project;
         setTitle("UML Diagram Viewer");
         setSize(FRAME_WIDTH, FRAME_HEIGHT);

@@ -7,19 +7,26 @@ public class MethodInfo {
     private String name;
     private String returnType;
     private List<ParameterInfo> parameters;
-
     private String sourceCode;
+
+    // Pour Feature Envy : champs accédés + méthodes invoquées
+    private List<String> accessedFields;
+    private List<String> invokedMethods;
 
     public MethodInfo(String name, String returnType) {
         this.name = name;
         this.returnType = returnType;
         this.parameters = new ArrayList<>();
-        this.sourceCode = null;
-
+        this.accessedFields = new ArrayList<>();
+        this.invokedMethods = new ArrayList<>();
     }
 
-    public void addParameter(ParameterInfo parameterType) {
-        parameters.add(parameterType);
+    public void addParameter(ParameterInfo parameter) {
+        parameters.add(parameter);
+    }
+
+    public List<ParameterInfo> getParameters() {
+        return parameters;
     }
 
     public String getName() {
@@ -30,10 +37,6 @@ public class MethodInfo {
         return returnType;
     }
 
-    public List<ParameterInfo> getParameters() {
-        return parameters;
-    }
-    
     public void setSourceCode(String sourceCode) {
         this.sourceCode = sourceCode;
     }
@@ -41,15 +44,45 @@ public class MethodInfo {
     public String getSourceCode() {
         return sourceCode;
     }
-    
+
     public int countLines() {
-    	
-    	if(sourceCode == null || sourceCode.isEmpty()) {
-    		return 0;
-    	}
-    	return sourceCode.split("\n").length;
+        if (sourceCode == null || sourceCode.isEmpty()) {
+            return 0;
+        }
+        return sourceCode.split("\n").length;
     }
+
+    // Renvoie le corps nettoyé (utile pour Duplicate Code)
+    public String getBody() {
+        if (sourceCode == null) return "";
+        return sourceCode.replaceAll("\\s+", "").replaceAll("//.*|/\\*(.|\\R)*?\\*/", "");
+    }
+
+    // Accès aux champs (pour Feature Envy)
+    public void addAccessedField(String fieldQualifiedName) {
+        accessedFields.add(fieldQualifiedName);
+    }
+
+    public List<String> getAccessedFields() {
+        return accessedFields;
+    }
+
+    // Méthodes invoquées (pour Feature Envy)
+    public void addInvokedMethod(String methodQualifiedName) {
+        invokedMethods.add(methodQualifiedName);
+    }
+
+    public List<String> getInvokedMethods() {
+        return invokedMethods;
+    }
+
+	@Override
+	public String toString() {
+		return "MethodInfo [name=" + name + ", returnType=" + returnType + ", parameters=" + parameters
+				+ ", sourceCode=" + sourceCode + ", accessedFields=" + accessedFields + ", invokedMethods="
+				+ invokedMethods + "]";
+	}
     
-  
+    
     
 }
