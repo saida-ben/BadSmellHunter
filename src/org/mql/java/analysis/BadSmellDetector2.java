@@ -33,10 +33,15 @@ public class BadSmellDetector2 {
 
     // ===================== Détection de classe =====================
     private static void detectClassSmells(ClassInfo cls, List<BadSmell> smells) {
+        detectLargeClass(cls, smells);
+        detectDataClass(cls, smells);
+        detectGodClass(cls, smells);
+        detectLazyClass(cls,smells);
+    }
+    
+    private static void detectLargeClass(ClassInfo cls, List<BadSmell> smells) {
         int numMethods = cls.getMethods().size();
         int numFields = cls.getFields().size();
-        int numRelations = cls.getRelations().size();
-
         if (numMethods > LARGE_CLASS_METHODS || numFields > LARGE_CLASS_FIELDS) {
             smells.add(new BadSmell(
                 "Large Class",
@@ -44,6 +49,12 @@ public class BadSmellDetector2 {
                 "Contains " + numMethods + " methods and " + numFields + " fields (too big)"
             ));        
         }
+    }
+    
+    
+    private static void detectDataClass(ClassInfo cls, List<BadSmell> smells) {
+        int numMethods = cls.getMethods().size();
+        int numFields = cls.getFields().size();
         if (numFields >= DATA_CLASS_FIELDS && numMethods <= 3) {
             smells.add(new BadSmell(
                 "Data Class",
@@ -51,6 +62,12 @@ public class BadSmellDetector2 {
                 "Has " + numFields + " fields but only " + numMethods + " methods (acts like a data container)"
             ));        
         }
+    }
+    
+    private static void detectGodClass(ClassInfo cls, List<BadSmell> smells) {
+        int numMethods = cls.getMethods().size();
+        int numRelations = cls.getRelations().size();
+
         if (numMethods >= GOD_CLASS_METHODS && numRelations >= GOD_CLASS_RELATIONS) {
             smells.add(new BadSmell(
                 "God Class",
@@ -58,6 +75,10 @@ public class BadSmellDetector2 {
                 "Has " + numMethods + " methods and " + numRelations + " relations (too many responsibilities)"
             ));  
         }
+    }
+    private static void detectLazyClass(ClassInfo cls, List<BadSmell> smells) {
+        int numMethods = cls.getMethods().size();
+        int numFields = cls.getFields().size();
         if (numMethods <= LAZY_CLASS_METHODS && numFields <= LAZY_CLASS_FIELDS) {
             smells.add(new BadSmell(
                 "Lazy Class",
@@ -66,9 +87,10 @@ public class BadSmellDetector2 {
             ));  
         }
     }
-
+    
+    
     // ===================== Détection de méthode =====================
-    private static void detectMethodSmells(ClassInfo cls, List<BadSmell> smells) {
+   private static void detectMethodSmells(ClassInfo cls, List<BadSmell> smells) {
         for (MethodInfo meth : cls.getMethods()) {
             detectLongMethod(cls, meth, smells);
             detectFeatureEnvy(cls, meth, smells);

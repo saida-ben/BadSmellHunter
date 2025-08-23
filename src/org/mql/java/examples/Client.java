@@ -25,6 +25,8 @@ public class Client {
 	public Client() {
 		exp01();
 	}
+	
+	
     	
 	private void exp01() {
 		String projectPath = "C:\\Users\\benza\\Documents\\eclipse_workspce\\prj_reflexion"; 
@@ -35,6 +37,7 @@ public class Client {
 	    XMLParser parser = new XMLParser();
 
 	    Project xmlfile = null;
+	    
 		Project project = Extractor.extractProject(projectPath); 
 		ConsoleDisplay.displayProjectInfo(project);
 		SourceCodeAnalyzer.enrichWithSourceCode(project, "C:\\Users\\benza\\Documents\\eclipse_workspce\\projet_test\\src");

@@ -12,15 +12,15 @@
   "reason" : "Has only 1 methods and 1 fields (does too little)"
 }, {
   "type" : "Long Method",
-  "location" : "UMLRelationPanel.drawArrow",
-  "reason" : "Method has 6 parameters (too many)."
-}, {
-  "type" : "Long Method",
   "location" : "UMLRelationPanel.drawDiamondArrow",
   "reason" : "Method has 6 parameters (too many)."
 }, {
   "type" : "Long Method",
   "location" : "UMLRelationPanel.drawSimpleArrow",
+  "reason" : "Method has 6 parameters (too many)."
+}, {
+  "type" : "Long Method",
+  "location" : "UMLRelationPanel.drawArrow",
   "reason" : "Method has 6 parameters (too many)."
 }, {
   "type" : "Lazy Class",
@@ -75,31 +75,7 @@
   "location" : "Client",
   "reason" : "Has only 3 methods and 0 fields (does too little)"
 }, {
-  "type" : "Data Class",
-  "location" : "GodClassTest",
-  "reason" : "Has 15 fields but only 1 methods (acts like a data container)"
-}, {
-  "type" : "Large Class",
-  "location" : "LargeClass",
-  "reason" : "Contains 22 methods and 0 fields (too big)"
-}, {
-  "type" : "Lazy Class",
-  "location" : "LongMethodTest",
-  "reason" : "Has only 2 methods and 0 fields (does too little)"
-}, {
-  "type" : "Long Method",
-  "location" : "LongMethodTest.longMethodWithTooManyParams",
-  "reason" : "Method has 6 parameters (too many)."
-}, {
-  "type" : "Lazy Class",
-  "location" : "OrderAnalyzer",
-  "reason" : "Has only 2 methods and 0 fields (does too little)"
-}, {
   "type" : "Lazy Class",
   "location" : "ProjectScanner",
   "reason" : "Has only 1 methods and 0 fields (does too little)"
-}, {
-  "type" : "Lazy Class",
-  "location" : "BadSmellDetectorTest",
-  "reason" : "Has only 0 methods and 0 fields (does too little)"
 } ]
