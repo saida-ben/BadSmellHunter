@@ -1,4 +1,4 @@
-package org.mql.java.xml;
+package org.mql.java.output;
 
 import org.mql.java.models.ClassInfo;
 import org.mql.java.models.MethodInfo;

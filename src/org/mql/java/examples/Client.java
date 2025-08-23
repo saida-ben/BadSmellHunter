@@ -1,4 +1,4 @@
-package org.mql.java.reflection;
+package org.mql.java.examples;
 
 import java.io.IOException;
 import java.util.List;
@@ -6,11 +6,17 @@ import java.util.List;
 import javax.swing.SwingUtilities;
 
 import org.mql.java.analysis.BadSmellDetector;
+import org.mql.java.analysis.BadSmellDetector2;
 import org.mql.java.models.*;
+import org.mql.java.output.ConsoleDisplay;
+import org.mql.java.output.JsonGenerator;
+import org.mql.java.output.XMLParser;
+import org.mql.java.output.XMLWriter;
+import org.mql.java.output.XmiGenerator;
+import org.mql.java.reflection.Extractor;
+import org.mql.java.reflection.SourceCodeAnalyzer;
 import org.mql.java.ui.UMLDiagramViewer1;
 import org.mql.java.ui.UMLDiagramViewer2;
-import org.mql.java.xml.XMLParser;
-import org.mql.java.xml.XMLWriter;
 
 
 
@@ -21,8 +27,10 @@ public class Client {
 	}
     	
 	private void exp01() {
-		String projectPath = "C:\\Users\\benza\\Documents\\eclipse_workspce\\projet_test"; 
+		String projectPath = "C:\\Users\\benza\\Documents\\eclipse_workspce\\prj_reflexion"; 
 		String xmlFilePath = "C:\\Users\\benza\\Documents\\eclipse_workspce\\prj_reflexion\\ressources\\output.xml";
+		String jsonFilePath = "C:\\Users\\benza\\Documents\\eclipse_workspce\\prj_reflexion\\ressources\\output.json";
+
 		String outputXmiPath = "C:\\\\Users\\\\benza\\\\Documents\\\\eclipse_workspce\\\\prj_reflexion\\\\ressources\\\\output2.xmi";
 	    XMLParser parser = new XMLParser();
 
@@ -62,12 +70,12 @@ public class Client {
 
 		//parser.displayModel(xmlfile);
     
-		List<String> smells = BadSmellDetector.detect(project);
+		List<BadSmell> smells = BadSmellDetector2.detect(project);
     
-		for(String smell : smells) {
+		for(BadSmell smell : smells) {
 			System.out.println("smells = " + smell);
 		}
-
+		JsonGenerator.exportBadSmellsToJson(smells, jsonFilePath);
 		
 		SwingUtilities.invokeLater(() -> new UMLDiagramViewer2(project));		 
 

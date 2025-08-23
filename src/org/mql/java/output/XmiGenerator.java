@@ -1,4 +1,4 @@
-package org.mql.java.reflection;
+package org.mql.java.output;
 
 import java.io.File;
 import java.io.FileWriter;
