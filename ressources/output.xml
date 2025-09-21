@@ -1,318 +1,100 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Project>
-    <ProjectName>C:\Users\benza\Documents\eclipse_workspce\prj_reflexion</ProjectName>
+    <ProjectName>C:\Users\benza\Documents\eclipse_workspce\p01-revisison</ProjectName>
     <Packages>
-        <Package name="org.mql.java.ui">
-            <Class name="UMLClassPanel">
-                <Superclass>JPanel</Superclass>
-                <Methods>
-                    <Method name="paintComponent">void</Method>
-                    <Method name="getPreferredHeight">int</Method>
-                    <Method name="getCenter">Point</Method>
-                </Methods>
-            </Class>
-            <Class name="DrawingPanel">
-                <Superclass>JPanel</Superclass>
-                <Methods>
-                    <Method name="drawRelations">void</Method>
-                    <Method name="drawAggregation">void</Method>
-                    <Method name="getRelationOffset">Point</Method>
-                    <Method name="paintComponent">void</Method>
-                    <Method name="renderClassBox">void</Method>
-                    <Method name="collectAllClasses">List</Method>
-                    <Method name="drawInheritance">void</Method>
-                    <Method name="drawComposition">void</Method>
-                    <Method name="renderClassesWithIntelligentSpacing">void</Method>
-                </Methods>
-            </Class>
-            <Class name="UMLDiagramViewer1">
-                <Superclass>JFrame</Superclass>
-                <Methods/>
-            </Class>
-            <Class name="UMLDiagramViewer2">
-                <Superclass>JFrame</Superclass>
-                <Methods>
-                    <Method name="drawDiagram">void</Method>
-                </Methods>
-            </Class>
-            <Class name="UMLRelationPanel">
-                <Superclass>JPanel</Superclass>
-                <Methods>
-                    <Method name="paintComponent">void</Method>
-                    <Method name="drawDiamondArrow">void</Method>
-                    <Method name="drawSimpleArrow">void</Method>
-                    <Method name="getColorForType">Color</Method>
-                    <Method name="drawInheritanceArrow">void</Method>
-                    <Method name="drawArrow">void</Method>
-                </Methods>
-            </Class>
-        </Package>
-        <Package name="org.mql.java.models">
-            <Class name="AnnotationInfo">
+        <Package name="org.mql.java">
+            <Class name="Circle">
                 <Superclass/>
                 <Methods>
-                    <Method name="getName">String</Method>
-                    <Method name="toString">String</Method>
-                    <Method name="setName">void</Method>
-                </Methods>
-            </Class>
-            <Class name="AttributeInfo">
-                <Superclass/>
-                <Methods>
-                    <Method name="getName">String</Method>
-                    <Method name="getType">String</Method>
-                </Methods>
-            </Class>
-            <Class name="BadSmell">
-                <Superclass/>
-                <Methods>
-                    <Method name="setLocation">void</Method>
-                    <Method name="getReason">String</Method>
-                    <Method name="setReason">void</Method>
-                    <Method name="setType">void</Method>
-                    <Method name="toString">String</Method>
-                    <Method name="getLocation">String</Method>
-                    <Method name="getType">String</Method>
-                </Methods>
-            </Class>
-            <Class name="ClassInfo">
-                <Superclass/>
-                <Methods>
-                    <Method name="addField">void</Method>
-                    <Method name="getRelations">List</Method>
-                    <Method name="addRelation">void</Method>
-                    <Method name="addInterface">void</Method>
-                    <Method name="setLocation">void</Method>
-                    <Method name="addAnnotation">void</Method>
-                    <Method name="setInterface">void</Method>
-                    <Method name="setY">void</Method>
-                    <Method name="setEnum">void</Method>
-                    <Method name="getY">int</Method>
-                    <Method name="setX">void</Method>
+                    <Method name="setColor">void</Method>
                     <Method name="getX">int</Method>
-                    <Method name="getName">String</Method>
-                    <Method name="toString">String</Method>
-                    <Method name="isInterface">boolean</Method>
-                    <Method name="getSuperclass">String</Method>
-                    <Method name="isEnum">boolean</Method>
-                    <Method name="getInterfaces">List</Method>
-                    <Method name="getFields">List</Method>
-                    <Method name="getMethods">List</Method>
-                    <Method name="getAnnotations">List</Method>
-                    <Method name="addMethod">void</Method>
-                    <Method name="setSuperclass">void</Method>
+                    <Method name="setY">void</Method>
+                    <Method name="getColor">Color</Method>
+                    <Method name="draw">void</Method>
+                    <Method name="getRay">int</Method>
+                    <Method name="setRay">void</Method>
+                    <Method name="setX">void</Method>
+                    <Method name="getY">int</Method>
                 </Methods>
             </Class>
-            <Class name="EnumInfo">
-                <Superclass/>
+            <Class name="CircleGenerator">
+                <Superclass>Thread</Superclass>
                 <Methods>
-                    <Method name="setValues">void</Method>
-                    <Method name="getValues">List</Method>
-                    <Method name="getName">String</Method>
-                    <Method name="setName">void</Method>
+                    <Method name="run">void</Method>
                 </Methods>
             </Class>
-            <Class name="FieldModel">
+            <Class name="Examples">
                 <Superclass/>
                 <Methods>
-                    <Method name="getName">String</Method>
-                    <Method name="getType">String</Method>
-                </Methods>
-            </Class>
-            <Class name="InterfaceInfo">
-                <Superclass/>
-                <Methods>
-                    <Method name="getName">String</Method>
-                    <Method name="setName">void</Method>
-                </Methods>
-            </Class>
-            <Class name="MethodInfo">
-                <Superclass/>
-                <Methods>
-                    <Method name="addParameter">void</Method>
-                    <Method name="getSourceCode">String</Method>
-                    <Method name="setSourceCode">void</Method>
-                    <Method name="addAccessedField">void</Method>
-                    <Method name="getAccessedFields">List</Method>
-                    <Method name="getInvokedMethods">List</Method>
-                    <Method name="addInvokedMethod">void</Method>
-                    <Method name="getBody">String</Method>
-                    <Method name="countLines">int</Method>
-                    <Method name="getName">String</Method>
-                    <Method name="toString">String</Method>
-                    <Method name="getReturnType">String</Method>
-                    <Method name="getParameters">List</Method>
-                </Methods>
-            </Class>
-            <Class name="PackageInfo">
-                <Superclass/>
-                <Methods>
-                    <Method name="getRelations">List</Method>
-                    <Method name="addRelation">void</Method>
-                    <Method name="getName">String</Method>
-                    <Method name="toString">String</Method>
-                    <Method name="getClasses">List</Method>
-                    <Method name="addClass">void</Method>
-                </Methods>
-            </Class>
-            <Class name="ParameterInfo">
-                <Superclass/>
-                <Methods>
-                    <Method name="getName">String</Method>
-                    <Method name="getType">String</Method>
-                </Methods>
-            </Class>
-            <Class name="Project">
-                <Superclass/>
-                <Methods>
-                    <Method name="addPackage">void</Method>
-                    <Method name="findClassByName">ClassInfo</Method>
-                    <Method name="printRelations">void</Method>
-                    <Method name="getName">String</Method>
-                    <Method name="getPackages">List</Method>
-                </Methods>
-            </Class>
-            <Class name="RelationType">
-                <Superclass/>
-                <Methods/>
-            </Class>
-            <Class name="Relation">
-                <Superclass/>
-                <Methods>
-                    <Method name="toString">String</Method>
-                    <Method name="getType">String</Method>
-                    <Method name="getTarget">String</Method>
-                    <Method name="getLabel">String</Method>
-                    <Method name="getSource">String</Method>
-                </Methods>
-            </Class>
-        </Package>
-        <Package name="org.mql.java.output">
-            <Class name="ConsoleDisplay">
-                <Superclass/>
-                <Methods>
-                    <Method name="displayProjectInfo">void</Method>
-                </Methods>
-            </Class>
-            <Class name="JsonGenerator">
-                <Superclass/>
-                <Methods>
-                    <Method name="exportBadSmellsToJson">void</Method>
-                </Methods>
-            </Class>
-            <Class name="XmiGenerator">
-                <Superclass/>
-                <Methods>
-                    <Method name="generateXmi">void</Method>
-                    <Method name="generateXmiContent">String</Method>
-                </Methods>
-            </Class>
-            <Class name="XMLParser">
-                <Superclass/>
-                <Methods>
-                    <Method name="parseClass">ClassInfo</Method>
-                    <Method name="displayModel">void</Method>
-                    <Method name="parsePackage">PackageInfo</Method>
-                    <Method name="parse">Project</Method>
-                    <Method name="parseMethod">MethodInfo</Method>
-                </Methods>
-            </Class>
-            <Class name="XMLWriter">
-                <Superclass/>
-                <Methods>
-                    <Method name="writeProjectToXML">void</Method>
-                </Methods>
-            </Class>
-        </Package>
-        <Package name="org.mql.java.examples">
-            <Class name="Client">
-                <Superclass/>
-                <Methods>
-                    <Method name="exp01">void</Method>
-                    <Method name="lambda$0">void</Method>
                     <Method name="main">void</Method>
+                    <Method name="exp01">void</Method>
+                    <Method name="exp03">void</Method>
+                    <Method name="exp02">void</Method>
                 </Methods>
             </Class>
-        </Package>
-        <Package name="org.mql.java.reflection">
-            <Class name="Extractor">
+            <Class name="ListTest">
                 <Superclass/>
                 <Methods>
-                    <Method name="extractProject">Project</Method>
-                    <Method name="convertToQualifiedName">String</Method>
-                    <Method name="extractClass">ClassInfo</Method>
-                    <Method name="exploreDirectory">void</Method>
-                    <Method name="findClassDirectory">File</Method>
+                    <Method name="main">void</Method>
+                    <Method name="TestLinkedList">void</Method>
+                    <Method name="TestArrayList">void</Method>
+                    <Method name="TestVector">void</Method>
                 </Methods>
             </Class>
-            <Class name="ProjectScanner">
+            <Class name="Rectangle">
                 <Superclass/>
                 <Methods>
-                    <Method name="scanJavaFiles">List</Method>
+                    <Method name="setHeight">void</Method>
+                    <Method name="getHeight">int</Method>
+                    <Method name="setWidth">void</Method>
+                    <Method name="getWidth">int</Method>
+                    <Method name="getX">int</Method>
+                    <Method name="setY">void</Method>
+                    <Method name="draw">void</Method>
+                    <Method name="setX">void</Method>
+                    <Method name="getY">int</Method>
                 </Methods>
             </Class>
-            <Class name="SourceCodeAnalyzer">
-                <Superclass/>
+            <Class name="Screen">
+                <Superclass>JPanel</Superclass>
                 <Methods>
-                    <Method name="enrichWithSourceCode">void</Method>
-                    <Method name="analyzeFeatureEnvy">void</Method>
-                    <Method name="extractMethodCode">String</Method>
-                    <Method name="readFile">String</Method>
+                    <Method name="add">void</Method>
+                    <Method name="getPreferdSize">Dimension</Method>
+                    <Method name="paintComponent">void</Method>
                 </Methods>
             </Class>
-        </Package>
-        <Package name="org.mql.java.analysis">
-            <Class name="BadSmellDetector">
-                <Superclass/>
+            <Class name="ScreenFrame">
+                <Superclass>JFrame</Superclass>
                 <Methods>
-                    <Method name="detect">List</Method>
-                    <Method name="isSpecialMethod">boolean</Method>
-                    <Method name="detectLongMethod">void</Method>
-                    <Method name="detectFeatureEnvy">void</Method>
-                    <Method name="cleanMethodBody">String</Method>
-                    <Method name="shouldSkipMethod">boolean</Method>
-                    <Method name="levenshteinDistance">int</Method>
-                    <Method name="detectMethodBadSmells">void</Method>
-                    <Method name="detectClassBadSmells">void</Method>
-                    <Method name="detectDuplicateCode">void</Method>
-                    <Method name="calculateSimilarity">double</Method>
-                    <Method name="min">int</Method>
+                    <Method name="main">void</Method>
+                    <Method name="userInterface">void</Method>
+                    <Method name="generateShapes">void</Method>
                 </Methods>
             </Class>
-            <Class name="BadSmellDetector2">
+            <Class name="Shape">
                 <Superclass/>
                 <Methods>
-                    <Method name="detect">List</Method>
-                    <Method name="detectGodClass">void</Method>
-                    <Method name="isSpecialMethod">boolean</Method>
-                    <Method name="detectClassSmells">void</Method>
-                    <Method name="detectMethodSmells">void</Method>
-                    <Method name="detectLongMethod">void</Method>
-                    <Method name="detectFeatureEnvy">void</Method>
-                    <Method name="cleanMethodBody">String</Method>
-                    <Method name="detectLargeClass">void</Method>
-                    <Method name="detectDataClass">void</Method>
-                    <Method name="shouldSkipMethod">boolean</Method>
-                    <Method name="detectLazyClass">void</Method>
-                    <Method name="levenshteinDistance">int</Method>
-                    <Method name="detectDuplicateCode">void</Method>
-                    <Method name="calculateSimilarity">double</Method>
+                    <Method name="draw">void</Method>
                 </Methods>
             </Class>
-            <Class name="BadSmellDetectorTest">
+            <Class name="StringTest">
                 <Superclass/>
                 <Methods>
-                    <Method name="lambda$0">boolean</Method>
-                    <Method name="detectFeatureEnvy">void</Method>
-                    <Method name="detectLongMethodTest">void</Method>
-                    <Method name="detectDataClassTest">void</Method>
-                    <Method name="detectLargeClassTest">void</Method>
-                    <Method name="detectLazyClassTest">void</Method>
-                    <Method name="lambda$4">boolean</Method>
-                    <Method name="lambda$1">boolean</Method>
-                    <Method name="lambda$3">boolean</Method>
-                    <Method name="lambda$2">boolean</Method>
-                    <Method name="init">void</Method>
+                    <Method name="testStringBuffer">void</Method>
+                    <Method name="testStringBuilder">void</Method>
+                    <Method name="testString">void</Method>
+                </Methods>
+            </Class>
+            <Class name="TimeProcessing">
+                <Superclass/>
+                <Methods>
+                    <Method name="run">void</Method>
+                </Methods>
+            </Class>
+            <Class name="Writer">
+                <Superclass>Thread</Superclass>
+                <Methods>
+                    <Method name="run">void</Method>
                 </Methods>
             </Class>
         </Package>

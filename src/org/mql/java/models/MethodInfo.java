@@ -8,7 +8,15 @@ public class MethodInfo {
     private String returnType;
     private List<ParameterInfo> parameters;
     private String sourceCode;
+	// Ajouter ces méthodes à votre classe MethodInfo
 
+	// Champ pour stocker la visibilité
+	private String visibility = "public"; // par défaut
+
+	// Champs pour les modificateurs
+	private boolean isStatic = false;
+	private boolean isAbstract = false;
+	private boolean isFinal = false;
     // Pour Feature Envy : champs accédés + méthodes invoquées
     private List<String> accessedFields;
     private List<String> invokedMethods;
@@ -84,5 +92,48 @@ public class MethodInfo {
 	}
     
     
-    
+
+
+	// Méthodes pour la visibilité
+	public String getVisibility() {
+	    return visibility;
+	}
+
+	public void setVisibility(String visibility) {
+	    this.visibility = visibility;
+	}
+
+	// Méthodes pour les modificateurs
+	public boolean isStatic() {
+	    return isStatic;
+	}
+
+	public void setStatic(boolean isStatic) {
+	    this.isStatic = isStatic;
+	}
+
+	public boolean isAbstract() {
+	    return isAbstract;
+	}
+
+	public void setAbstract(boolean isAbstract) {
+	    this.isAbstract = isAbstract;
+	}
+
+	public boolean isFinal() {
+	    return isFinal;
+	}
+
+	public void setFinal(boolean isFinal) {
+	    this.isFinal = isFinal;
+	}
+
+	// Méthode pour obtenir les paramètres sous forme de liste de types (String)
+	public java.util.List<String> getParameterTypes() {
+	    java.util.List<String> types = new java.util.ArrayList<>();
+	    for (ParameterInfo param : parameters) {
+	        types.add(param.getType());
+	    }
+	    return types;
+	}
 }

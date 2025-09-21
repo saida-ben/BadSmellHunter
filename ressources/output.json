@@ -1,81 +1,21 @@
 [ {
   "type" : "Lazy Class",
-  "location" : "UMLClassPanel",
-  "reason" : "Has only 3 methods and 1 fields (does too little)"
-}, {
-  "type" : "Data Class",
-  "location" : "UMLDiagramViewer1",
-  "reason" : "Has 10 fields but only 0 methods (acts like a data container)"
+  "location" : "CircleGenerator",
+  "reason" : "Has only 1 methods and 2 fields (does too little)"
 }, {
   "type" : "Lazy Class",
-  "location" : "UMLDiagramViewer2",
+  "location" : "ScreenFrame",
+  "reason" : "Has only 3 methods and 1 fields (does too little)"
+}, {
+  "type" : "Lazy Class",
+  "location" : "Shape",
+  "reason" : "Has only 1 methods and 0 fields (does too little)"
+}, {
+  "type" : "Lazy Class",
+  "location" : "TimeProcessing",
+  "reason" : "Has only 1 methods and 0 fields (does too little)"
+}, {
+  "type" : "Lazy Class",
+  "location" : "Writer",
   "reason" : "Has only 1 methods and 1 fields (does too little)"
-}, {
-  "type" : "Long Method",
-  "location" : "UMLRelationPanel.drawDiamondArrow",
-  "reason" : "Method has 6 parameters (too many)."
-}, {
-  "type" : "Long Method",
-  "location" : "UMLRelationPanel.drawSimpleArrow",
-  "reason" : "Method has 6 parameters (too many)."
-}, {
-  "type" : "Long Method",
-  "location" : "UMLRelationPanel.drawArrow",
-  "reason" : "Method has 6 parameters (too many)."
-}, {
-  "type" : "Lazy Class",
-  "location" : "AnnotationInfo",
-  "reason" : "Has only 3 methods and 1 fields (does too little)"
-}, {
-  "type" : "Lazy Class",
-  "location" : "AttributeInfo",
-  "reason" : "Has only 2 methods and 2 fields (does too little)"
-}, {
-  "type" : "Large Class",
-  "location" : "ClassInfo",
-  "reason" : "Contains 23 methods and 11 fields (too big)"
-}, {
-  "type" : "God Class",
-  "location" : "ClassInfo",
-  "reason" : "Has 23 methods and 9 relations (too many responsibilities)"
-}, {
-  "type" : "Lazy Class",
-  "location" : "FieldModel",
-  "reason" : "Has only 2 methods and 2 fields (does too little)"
-}, {
-  "type" : "Lazy Class",
-  "location" : "InterfaceInfo",
-  "reason" : "Has only 2 methods and 1 fields (does too little)"
-}, {
-  "type" : "Lazy Class",
-  "location" : "ParameterInfo",
-  "reason" : "Has only 2 methods and 2 fields (does too little)"
-}, {
-  "type" : "Lazy Class",
-  "location" : "RelationType",
-  "reason" : "Has only 0 methods and 1 fields (does too little)"
-}, {
-  "type" : "Lazy Class",
-  "location" : "ConsoleDisplay",
-  "reason" : "Has only 1 methods and 0 fields (does too little)"
-}, {
-  "type" : "Lazy Class",
-  "location" : "JsonGenerator",
-  "reason" : "Has only 1 methods and 0 fields (does too little)"
-}, {
-  "type" : "Lazy Class",
-  "location" : "XmiGenerator",
-  "reason" : "Has only 2 methods and 0 fields (does too little)"
-}, {
-  "type" : "Lazy Class",
-  "location" : "XMLWriter",
-  "reason" : "Has only 1 methods and 0 fields (does too little)"
-}, {
-  "type" : "Lazy Class",
-  "location" : "Client",
-  "reason" : "Has only 3 methods and 0 fields (does too little)"
-}, {
-  "type" : "Lazy Class",
-  "location" : "ProjectScanner",
-  "reason" : "Has only 1 methods and 0 fields (does too little)"
 } ]

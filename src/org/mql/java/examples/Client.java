@@ -2,11 +2,7 @@ package org.mql.java.examples;
 
 import java.io.IOException;
 import java.util.List;
-
 import javax.swing.SwingUtilities;
-
-import org.mql.java.analysis.BadSmellDetector;
-import org.mql.java.analysis.BadSmellDetector2;
 import org.mql.java.models.*;
 import org.mql.java.output.ConsoleDisplay;
 import org.mql.java.output.JsonGenerator;
@@ -15,82 +11,64 @@ import org.mql.java.output.XMLWriter;
 import org.mql.java.output.XmiGenerator;
 import org.mql.java.reflection.Extractor;
 import org.mql.java.reflection.SourceCodeAnalyzer;
-import org.mql.java.ui.UMLDiagramViewer1;
 import org.mql.java.ui.UMLDiagramViewer2;
-
-
+import org.mql.java.analysis.BadSmellDetector2;
 
 public class Client {
-	
-	public Client() {
-		exp01();
-	}
-	
-	
-    	
-	private void exp01() {
-		String projectPath = "C:\\Users\\benza\\Documents\\eclipse_workspce\\prj_reflexion"; 
-		String xmlFilePath = "C:\\Users\\benza\\Documents\\eclipse_workspce\\prj_reflexion\\ressources\\output.xml";
-		String jsonFilePath = "C:\\Users\\benza\\Documents\\eclipse_workspce\\prj_reflexion\\ressources\\output.json";
 
-		String outputXmiPath = "C:\\\\Users\\\\benza\\\\Documents\\\\eclipse_workspce\\\\prj_reflexion\\\\ressources\\\\output2.xmi";
-	    XMLParser parser = new XMLParser();
+    public Client() {
+        // Option 1: Lancer le viewer avec interface de recherche
+        launchInteractiveViewer();
+        
+        // Option 2: Lancer le traitement automatique (commenté pour l'exemple)
+        // exp01();
+    }
 
-	    Project xmlfile = null;
-	    
-		Project project = Extractor.extractProject(projectPath); 
-		ConsoleDisplay.displayProjectInfo(project);
-		SourceCodeAnalyzer.enrichWithSourceCode(project, "C:\\Users\\benza\\Documents\\eclipse_workspce\\projet_test\\src");
+    private void launchInteractiveViewer() {
+        SwingUtilities.invokeLater(() -> {
+            new UMLDiagramViewer2(); // Lance le viewer vide avec interface de recherche
+        });
+    }
 
-		
-		
-		XMLWriter.writeProjectToXML(project, xmlFilePath); // Cela générera le fichier XML avec les informations extraites
-		System.out.println("Fichier XML généré avec succès !");
+    private void exp01() {
+        String projectPath = "C:\\Users\\benza\\Documents\\eclipse_workspce\\p01-revisison";
+        String xmlFilePath = "C:\\Users\\benza\\Documents\\eclipse_workspce\\prj_reflexion\\ressources\\output.xml";
+        String jsonFilePath = "C:\\Users\\benza\\Documents\\eclipse_workspce\\prj_reflexion\\ressources\\output.json";
+        String outputXmiPath = "C:\\\\Users\\\\benza\\\\Documents\\\\eclipse_workspce\\\\prj_reflexion\\\\ressources\\\\output2.xmi";
+        
+        XMLParser parser = new XMLParser();
+        Project xmlfile = null;
 
-		try {
-			XmiGenerator.generateXmi(project, outputXmiPath);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		System.out.println("Fichier XMI généré avec succès !");
+        // Extraire le projet
+        Project project = Extractor.extractProject(projectPath);
+        ConsoleDisplay.displayProjectInfo(project);
+        
+        // Enrichir avec le code source
+        SourceCodeAnalyzer.enrichWithSourceCode(project, "C:\\Users\\benza\\Documents\\eclipse_workspce\\projet_test\\src");
 
+        // Générer les fichiers de sortie
+        XMLWriter.writeProjectToXML(project, xmlFilePath);
+        System.out.println("Fichier XML généré avec succès !");
 
-    /*
-     * 
-		try {
-			xmlfile = parser.parse("C:\\Users\\benza\\Documents\\eclipse_workspce\\prj_reflexion\\ressources\\output.xml");
-		} catch (Exception e) {
-			System.err.println("Erreur lors de l'analyse du fichier XML.");
-			e.printStackTrace();
-			return;
-		}
+        try {
+            XmiGenerator.generateXmi(project, outputXmiPath);
+            System.out.println("Fichier XMI généré avec succès !");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-		if (xmlfile == null) {
-			System.err.println("Le projet est nul. Vérifiez le fichier XML ou le parser.");
-			return;
-		}
-     */
+        // Détecter les bad smells
+        List<BadSmell> smells = BadSmellDetector2.detect(project);
+        for(BadSmell smell : smells) {
+            System.out.println("smells = " + smell);
+        }
+        JsonGenerator.exportBadSmellsToJson(smells, jsonFilePath);
 
-		//parser.displayModel(xmlfile);
-    
-		List<BadSmell> smells = BadSmellDetector2.detect(project);
-    
-		for(BadSmell smell : smells) {
-			System.out.println("smells = " + smell);
-		}
-		JsonGenerator.exportBadSmellsToJson(smells, jsonFilePath);
-		
-		SwingUtilities.invokeLater(() -> new UMLDiagramViewer2(project));		 
+        // Lancer le viewer avec le projet chargé
+        SwingUtilities.invokeLater(() -> new UMLDiagramViewer2(project));
+    }
 
-}
-
-		
-
-
-
-
-	public static void main(String[] args) {
+    public static void main(String[] args) {
         new Client();
-   }
-	
+    }
 }

@@ -1,608 +1,141 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <XMI xmi.version="2.1" xmlns:xmi="http://www.omg.org/XMI" xmlns:uml="http://www.omg.org/spec/UML/20090901">
-  <uml:Package name="org.mql.java.ui">
-<uml:Class name="UMLClassPanel">
-<uml:Property name="classInfo" type="ClassInfo"/>
-<uml:Operation name="paintComponent">
-<uml:Parameter name="graphics" type="Graphics"/>
-</uml:Operation>
-<uml:Operation name="getPreferredHeight">
-</uml:Operation>
-<uml:Operation name="getCenter">
-</uml:Operation>
-</uml:Class>
-<uml:Class name="DrawingPanel">
-<uml:Property name="serialVersionUID" type="long"/>
-<uml:Property name="this$0" type="UMLDiagramViewer1"/>
-<uml:Operation name="drawRelations">
-<uml:Parameter name="graphics2d" type="Graphics2D"/>
-</uml:Operation>
-<uml:Operation name="drawAggregation">
-<uml:Parameter name="graphics2d" type="Graphics2D"/>
-<uml:Parameter name="point" type="Point"/>
-<uml:Parameter name="point" type="Point"/>
-</uml:Operation>
-<uml:Operation name="getRelationOffset">
-<uml:Parameter name="list" type="List"/>
-</uml:Operation>
-<uml:Operation name="paintComponent">
-<uml:Parameter name="graphics" type="Graphics"/>
-</uml:Operation>
-<uml:Operation name="renderClassBox">
-<uml:Parameter name="graphics2d" type="Graphics2D"/>
-<uml:Parameter name="classinfo" type="ClassInfo"/>
-<uml:Parameter name="int" type="int"/>
-<uml:Parameter name="int" type="int"/>
-</uml:Operation>
-<uml:Operation name="collectAllClasses">
-</uml:Operation>
-<uml:Operation name="drawInheritance">
-<uml:Parameter name="graphics2d" type="Graphics2D"/>
-<uml:Parameter name="point" type="Point"/>
-<uml:Parameter name="point" type="Point"/>
-</uml:Operation>
-<uml:Operation name="drawComposition">
-<uml:Parameter name="graphics2d" type="Graphics2D"/>
-<uml:Parameter name="point" type="Point"/>
-<uml:Parameter name="point" type="Point"/>
-</uml:Operation>
-<uml:Operation name="renderClassesWithIntelligentSpacing">
-<uml:Parameter name="graphics2d" type="Graphics2D"/>
-</uml:Operation>
-</uml:Class>
-<uml:Class name="UMLDiagramViewer1">
-<uml:Property name="serialVersionUID" type="long"/>
-<uml:Property name="FRAME_WIDTH" type="int"/>
-<uml:Property name="FRAME_HEIGHT" type="int"/>
-<uml:Property name="CLASS_BOX_WIDTH" type="int"/>
-<uml:Property name="CLASS_BOX_HEIGHT" type="int"/>
-<uml:Property name="HORIZONTAL_SPACING" type="int"/>
-<uml:Property name="VERTICAL_SPACING" type="int"/>
-<uml:Property name="project" type="Project"/>
-<uml:Property name="classPositions" type="Map"/>
-<uml:Property name="drawingPanel" type="DrawingPanel"/>
-</uml:Class>
-<uml:Class name="UMLDiagramViewer2">
-<uml:Property name="serialVersionUID" type="long"/>
-<uml:Operation name="drawDiagram">
-<uml:Parameter name="project" type="Project"/>
-</uml:Operation>
-</uml:Class>
-<uml:Class name="UMLRelationPanel">
-<uml:Property name="serialVersionUID" type="long"/>
-<uml:Property name="project" type="Project"/>
-<uml:Operation name="paintComponent">
-<uml:Parameter name="graphics" type="Graphics"/>
-</uml:Operation>
-<uml:Operation name="drawDiamondArrow">
-<uml:Parameter name="graphics2d" type="Graphics2D"/>
-<uml:Parameter name="int" type="int"/>
-<uml:Parameter name="int" type="int"/>
-<uml:Parameter name="int" type="int"/>
-<uml:Parameter name="int" type="int"/>
-<uml:Parameter name="boolean" type="boolean"/>
-</uml:Operation>
-<uml:Operation name="drawSimpleArrow">
-<uml:Parameter name="graphics2d" type="Graphics2D"/>
-<uml:Parameter name="int" type="int"/>
-<uml:Parameter name="int" type="int"/>
-<uml:Parameter name="int" type="int"/>
-<uml:Parameter name="int" type="int"/>
-<uml:Parameter name="string" type="String"/>
-</uml:Operation>
-<uml:Operation name="getColorForType">
-<uml:Parameter name="string" type="String"/>
-</uml:Operation>
-<uml:Operation name="drawInheritanceArrow">
-<uml:Parameter name="graphics2d" type="Graphics2D"/>
-<uml:Parameter name="int" type="int"/>
-<uml:Parameter name="int" type="int"/>
-<uml:Parameter name="int" type="int"/>
-<uml:Parameter name="int" type="int"/>
-</uml:Operation>
-<uml:Operation name="drawArrow">
-<uml:Parameter name="graphics" type="Graphics"/>
-<uml:Parameter name="int" type="int"/>
-<uml:Parameter name="int" type="int"/>
-<uml:Parameter name="int" type="int"/>
-<uml:Parameter name="int" type="int"/>
-<uml:Parameter name="string" type="String"/>
-</uml:Operation>
-</uml:Class>
-</uml:Package>
-  <uml:Package name="org.mql.java.models">
-<uml:Class name="AnnotationInfo">
-<uml:Property name="name" type="String"/>
-<uml:Operation name="getName">
-</uml:Operation>
-<uml:Operation name="toString">
-</uml:Operation>
-<uml:Operation name="setName">
-<uml:Parameter name="string" type="String"/>
-</uml:Operation>
-</uml:Class>
-<uml:Class name="AttributeInfo">
-<uml:Property name="name" type="String"/>
-<uml:Property name="type" type="String"/>
-<uml:Operation name="getName">
-</uml:Operation>
-<uml:Operation name="getType">
-</uml:Operation>
-</uml:Class>
-<uml:Class name="BadSmell">
-<uml:Property name="type" type="String"/>
-<uml:Property name="location" type="String"/>
-<uml:Property name="reason" type="String"/>
-<uml:Operation name="setLocation">
-<uml:Parameter name="string" type="String"/>
-</uml:Operation>
-<uml:Operation name="getReason">
-</uml:Operation>
-<uml:Operation name="setReason">
-<uml:Parameter name="string" type="String"/>
-</uml:Operation>
-<uml:Operation name="setType">
-<uml:Parameter name="string" type="String"/>
-</uml:Operation>
-<uml:Operation name="toString">
-</uml:Operation>
-<uml:Operation name="getLocation">
-</uml:Operation>
-<uml:Operation name="getType">
-</uml:Operation>
-</uml:Class>
-<uml:Class name="ClassInfo">
-<uml:Property name="name" type="String"/>
-<uml:Property name="superclass" type="String"/>
-<uml:Property name="isInterface" type="boolean"/>
-<uml:Property name="isEnum" type="boolean"/>
-<uml:Property name="interfaces" type="List"/>
-<uml:Property name="fields" type="List"/>
-<uml:Property name="methods" type="List"/>
-<uml:Property name="annotations" type="List"/>
-<uml:Property name="relations" type="List"/>
+  <uml:Package name="org.mql.java">
+<uml:Class name="Circle">
 <uml:Property name="x" type="int"/>
 <uml:Property name="y" type="int"/>
-<uml:Operation name="addField">
-<uml:Parameter name="fieldmodel" type="FieldModel"/>
+<uml:Property name="ray" type="int"/>
+<uml:Property name="color" type="Color"/>
+<uml:Operation name="setColor">
+<uml:Parameter name="color" type="Color"/>
 </uml:Operation>
-<uml:Operation name="getRelations">
-</uml:Operation>
-<uml:Operation name="addRelation">
-<uml:Parameter name="relation" type="Relation"/>
-</uml:Operation>
-<uml:Operation name="addInterface">
-<uml:Parameter name="string" type="String"/>
-</uml:Operation>
-<uml:Operation name="setLocation">
-<uml:Parameter name="int" type="int"/>
-<uml:Parameter name="int" type="int"/>
-</uml:Operation>
-<uml:Operation name="addAnnotation">
-<uml:Parameter name="annotationinfo" type="AnnotationInfo"/>
-</uml:Operation>
-<uml:Operation name="setInterface">
-<uml:Parameter name="boolean" type="boolean"/>
+<uml:Operation name="getX">
 </uml:Operation>
 <uml:Operation name="setY">
 <uml:Parameter name="int" type="int"/>
 </uml:Operation>
-<uml:Operation name="setEnum">
-<uml:Parameter name="boolean" type="boolean"/>
+<uml:Operation name="getColor">
 </uml:Operation>
-<uml:Operation name="getY">
+<uml:Operation name="draw">
+<uml:Parameter name="graphics" type="Graphics"/>
+</uml:Operation>
+<uml:Operation name="getRay">
+</uml:Operation>
+<uml:Operation name="setRay">
+<uml:Parameter name="int" type="int"/>
 </uml:Operation>
 <uml:Operation name="setX">
 <uml:Parameter name="int" type="int"/>
 </uml:Operation>
-<uml:Operation name="getX">
-</uml:Operation>
-<uml:Operation name="getName">
-</uml:Operation>
-<uml:Operation name="toString">
-</uml:Operation>
-<uml:Operation name="isInterface">
-</uml:Operation>
-<uml:Operation name="getSuperclass">
-</uml:Operation>
-<uml:Operation name="isEnum">
-</uml:Operation>
-<uml:Operation name="getInterfaces">
-</uml:Operation>
-<uml:Operation name="getFields">
-</uml:Operation>
-<uml:Operation name="getMethods">
-</uml:Operation>
-<uml:Operation name="getAnnotations">
-</uml:Operation>
-<uml:Operation name="addMethod">
-<uml:Parameter name="methodinfo" type="MethodInfo"/>
-</uml:Operation>
-<uml:Operation name="setSuperclass">
-<uml:Parameter name="string" type="String"/>
+<uml:Operation name="getY">
 </uml:Operation>
 </uml:Class>
-<uml:Class name="EnumInfo">
-<uml:Property name="name" type="String"/>
-<uml:Property name="values" type="List"/>
-<uml:Operation name="setValues">
-<uml:Parameter name="list" type="List"/>
-</uml:Operation>
-<uml:Operation name="getValues">
-</uml:Operation>
-<uml:Operation name="getName">
-</uml:Operation>
-<uml:Operation name="setName">
-<uml:Parameter name="string" type="String"/>
+<uml:Class name="CircleGenerator">
+<uml:Property name="screen" type="Screen"/>
+<uml:Property name="colors" type="Color[]"/>
+<uml:Operation name="run">
 </uml:Operation>
 </uml:Class>
-<uml:Class name="FieldModel">
-<uml:Property name="name" type="String"/>
-<uml:Property name="type" type="String"/>
-<uml:Operation name="getName">
-</uml:Operation>
-<uml:Operation name="getType">
-</uml:Operation>
-</uml:Class>
-<uml:Class name="InterfaceInfo">
-<uml:Property name="name" type="String"/>
-<uml:Operation name="getName">
-</uml:Operation>
-<uml:Operation name="setName">
-<uml:Parameter name="string" type="String"/>
-</uml:Operation>
-</uml:Class>
-<uml:Class name="MethodInfo">
-<uml:Property name="name" type="String"/>
-<uml:Property name="returnType" type="String"/>
-<uml:Property name="parameters" type="List"/>
-<uml:Property name="sourceCode" type="String"/>
-<uml:Property name="accessedFields" type="List"/>
-<uml:Property name="invokedMethods" type="List"/>
-<uml:Operation name="addParameter">
-<uml:Parameter name="parameterinfo" type="ParameterInfo"/>
-</uml:Operation>
-<uml:Operation name="getSourceCode">
-</uml:Operation>
-<uml:Operation name="setSourceCode">
-<uml:Parameter name="string" type="String"/>
-</uml:Operation>
-<uml:Operation name="addAccessedField">
-<uml:Parameter name="string" type="String"/>
-</uml:Operation>
-<uml:Operation name="getAccessedFields">
-</uml:Operation>
-<uml:Operation name="getInvokedMethods">
-</uml:Operation>
-<uml:Operation name="addInvokedMethod">
-<uml:Parameter name="string" type="String"/>
-</uml:Operation>
-<uml:Operation name="getBody">
-</uml:Operation>
-<uml:Operation name="countLines">
-</uml:Operation>
-<uml:Operation name="getName">
-</uml:Operation>
-<uml:Operation name="toString">
-</uml:Operation>
-<uml:Operation name="getReturnType">
-</uml:Operation>
-<uml:Operation name="getParameters">
-</uml:Operation>
-</uml:Class>
-<uml:Class name="PackageInfo">
-<uml:Property name="name" type="String"/>
-<uml:Property name="classes" type="List"/>
-<uml:Property name="relations" type="List"/>
-<uml:Operation name="getRelations">
-</uml:Operation>
-<uml:Operation name="addRelation">
-<uml:Parameter name="relation" type="Relation"/>
-</uml:Operation>
-<uml:Operation name="getName">
-</uml:Operation>
-<uml:Operation name="toString">
-</uml:Operation>
-<uml:Operation name="getClasses">
-</uml:Operation>
-<uml:Operation name="addClass">
-<uml:Parameter name="classinfo" type="ClassInfo"/>
-</uml:Operation>
-</uml:Class>
-<uml:Class name="ParameterInfo">
-<uml:Property name="name" type="String"/>
-<uml:Property name="type" type="String"/>
-<uml:Operation name="getName">
-</uml:Operation>
-<uml:Operation name="getType">
-</uml:Operation>
-</uml:Class>
-<uml:Class name="Project">
-<uml:Property name="name" type="String"/>
-<uml:Property name="packages" type="List"/>
-<uml:Property name="classes" type="List"/>
-<uml:Operation name="addPackage">
-<uml:Parameter name="packageinfo" type="PackageInfo"/>
-</uml:Operation>
-<uml:Operation name="findClassByName">
-<uml:Parameter name="string" type="String"/>
-</uml:Operation>
-<uml:Operation name="printRelations">
-</uml:Operation>
-<uml:Operation name="getName">
-</uml:Operation>
-<uml:Operation name="getPackages">
-</uml:Operation>
-</uml:Class>
-<uml:Class name="RelationType">
-<uml:Property name="this$0" type="Relation"/>
-</uml:Class>
-<uml:Class name="Relation">
-<uml:Property name="source" type="String"/>
-<uml:Property name="target" type="String"/>
-<uml:Property name="type" type="String"/>
-<uml:Property name="label" type="String"/>
-<uml:Operation name="toString">
-</uml:Operation>
-<uml:Operation name="getType">
-</uml:Operation>
-<uml:Operation name="getTarget">
-</uml:Operation>
-<uml:Operation name="getLabel">
-</uml:Operation>
-<uml:Operation name="getSource">
-</uml:Operation>
-</uml:Class>
-</uml:Package>
-  <uml:Package name="org.mql.java.output">
-<uml:Class name="ConsoleDisplay">
-<uml:Operation name="displayProjectInfo">
-<uml:Parameter name="project" type="Project"/>
-</uml:Operation>
-</uml:Class>
-<uml:Class name="JsonGenerator">
-<uml:Operation name="exportBadSmellsToJson">
-<uml:Parameter name="list" type="List"/>
-<uml:Parameter name="string" type="String"/>
-</uml:Operation>
-</uml:Class>
-<uml:Class name="XmiGenerator">
-<uml:Operation name="generateXmi">
-<uml:Parameter name="project" type="Project"/>
-<uml:Parameter name="string" type="String"/>
-</uml:Operation>
-<uml:Operation name="generateXmiContent">
-<uml:Parameter name="project" type="Project"/>
-</uml:Operation>
-</uml:Class>
-<uml:Class name="XMLParser">
-<uml:Operation name="parseClass">
-<uml:Parameter name="element" type="Element"/>
-</uml:Operation>
-<uml:Operation name="displayModel">
-<uml:Parameter name="project" type="Project"/>
-</uml:Operation>
-<uml:Operation name="parsePackage">
-<uml:Parameter name="element" type="Element"/>
-</uml:Operation>
-<uml:Operation name="parse">
-<uml:Parameter name="string" type="String"/>
-</uml:Operation>
-<uml:Operation name="parseMethod">
-<uml:Parameter name="element" type="Element"/>
-</uml:Operation>
-</uml:Class>
-<uml:Class name="XMLWriter">
-<uml:Operation name="writeProjectToXML">
-<uml:Parameter name="project" type="Project"/>
-<uml:Parameter name="string" type="String"/>
-</uml:Operation>
-</uml:Class>
-</uml:Package>
-  <uml:Package name="org.mql.java.examples">
-<uml:Class name="Client">
-<uml:Operation name="exp01">
-</uml:Operation>
-<uml:Operation name="lambda$0">
-<uml:Parameter name="project" type="Project"/>
-</uml:Operation>
+<uml:Class name="Examples">
 <uml:Operation name="main">
 <uml:Parameter name="string[]" type="String[]"/>
 </uml:Operation>
-</uml:Class>
-</uml:Package>
-  <uml:Package name="org.mql.java.reflection">
-<uml:Class name="Extractor">
-<uml:Operation name="extractProject">
-<uml:Parameter name="string" type="String"/>
+<uml:Operation name="exp01">
 </uml:Operation>
-<uml:Operation name="convertToQualifiedName">
-<uml:Parameter name="string" type="String"/>
-<uml:Parameter name="string" type="String"/>
+<uml:Operation name="exp03">
 </uml:Operation>
-<uml:Operation name="extractClass">
-<uml:Parameter name="class" type="Class"/>
-</uml:Operation>
-<uml:Operation name="exploreDirectory">
-<uml:Parameter name="file" type="File"/>
-<uml:Parameter name="string" type="String"/>
-<uml:Parameter name="map" type="Map"/>
-</uml:Operation>
-<uml:Operation name="findClassDirectory">
-<uml:Parameter name="file" type="File"/>
+<uml:Operation name="exp02">
 </uml:Operation>
 </uml:Class>
-<uml:Class name="ProjectScanner">
-<uml:Operation name="scanJavaFiles">
-<uml:Parameter name="string" type="String"/>
+<uml:Class name="ListTest">
+<uml:Property name="counter" type="int"/>
+<uml:Operation name="main">
+<uml:Parameter name="string[]" type="String[]"/>
+</uml:Operation>
+<uml:Operation name="TestLinkedList">
+</uml:Operation>
+<uml:Operation name="TestArrayList">
+</uml:Operation>
+<uml:Operation name="TestVector">
 </uml:Operation>
 </uml:Class>
-<uml:Class name="SourceCodeAnalyzer">
-<uml:Operation name="enrichWithSourceCode">
-<uml:Parameter name="project" type="Project"/>
-<uml:Parameter name="string" type="String"/>
-</uml:Operation>
-<uml:Operation name="analyzeFeatureEnvy">
-<uml:Parameter name="methodinfo" type="MethodInfo"/>
-<uml:Parameter name="string" type="String"/>
-</uml:Operation>
-<uml:Operation name="extractMethodCode">
-<uml:Parameter name="string" type="String"/>
-<uml:Parameter name="string" type="String"/>
-</uml:Operation>
-<uml:Operation name="readFile">
-<uml:Parameter name="string" type="String"/>
-</uml:Operation>
-</uml:Class>
-</uml:Package>
-  <uml:Package name="org.mql.java.analysis">
-<uml:Class name="BadSmellDetector">
-<uml:Operation name="detect">
-<uml:Parameter name="project" type="Project"/>
-</uml:Operation>
-<uml:Operation name="isSpecialMethod">
-<uml:Parameter name="string" type="String"/>
-</uml:Operation>
-<uml:Operation name="detectLongMethod">
-<uml:Parameter name="classinfo" type="ClassInfo"/>
-<uml:Parameter name="methodinfo" type="MethodInfo"/>
-<uml:Parameter name="list" type="List"/>
-</uml:Operation>
-<uml:Operation name="detectFeatureEnvy">
-<uml:Parameter name="classinfo" type="ClassInfo"/>
-<uml:Parameter name="methodinfo" type="MethodInfo"/>
-<uml:Parameter name="list" type="List"/>
-</uml:Operation>
-<uml:Operation name="cleanMethodBody">
-<uml:Parameter name="string" type="String"/>
-</uml:Operation>
-<uml:Operation name="shouldSkipMethod">
-<uml:Parameter name="methodinfo" type="MethodInfo"/>
-</uml:Operation>
-<uml:Operation name="levenshteinDistance">
-<uml:Parameter name="string" type="String"/>
-<uml:Parameter name="string" type="String"/>
-</uml:Operation>
-<uml:Operation name="detectMethodBadSmells">
-<uml:Parameter name="classinfo" type="ClassInfo"/>
-<uml:Parameter name="packageinfo" type="PackageInfo"/>
-<uml:Parameter name="list" type="List"/>
-</uml:Operation>
-<uml:Operation name="detectClassBadSmells">
-<uml:Parameter name="classinfo" type="ClassInfo"/>
-<uml:Parameter name="list" type="List"/>
-</uml:Operation>
-<uml:Operation name="detectDuplicateCode">
-<uml:Parameter name="project" type="Project"/>
-<uml:Parameter name="list" type="List"/>
-</uml:Operation>
-<uml:Operation name="calculateSimilarity">
-<uml:Parameter name="string" type="String"/>
-<uml:Parameter name="string" type="String"/>
-</uml:Operation>
-<uml:Operation name="min">
-<uml:Parameter name="int" type="int"/>
-<uml:Parameter name="int" type="int"/>
+<uml:Class name="Rectangle">
+<uml:Property name="x" type="int"/>
+<uml:Property name="y" type="int"/>
+<uml:Property name="width" type="int"/>
+<uml:Property name="height" type="int"/>
+<uml:Operation name="setHeight">
 <uml:Parameter name="int" type="int"/>
 </uml:Operation>
-</uml:Class>
-<uml:Class name="BadSmellDetector2">
-<uml:Property name="LONG_METHOD_LINES" type="int"/>
-<uml:Property name="LONG_METHOD_PARAMS" type="int"/>
-<uml:Property name="LARGE_CLASS_METHODS" type="int"/>
-<uml:Property name="LARGE_CLASS_FIELDS" type="int"/>
-<uml:Property name="DATA_CLASS_FIELDS" type="int"/>
-<uml:Property name="GOD_CLASS_METHODS" type="int"/>
-<uml:Property name="GOD_CLASS_RELATIONS" type="int"/>
-<uml:Property name="LAZY_CLASS_METHODS" type="int"/>
-<uml:Property name="LAZY_CLASS_FIELDS" type="int"/>
-<uml:Operation name="detect">
-<uml:Parameter name="project" type="Project"/>
+<uml:Operation name="getHeight">
 </uml:Operation>
-<uml:Operation name="detectGodClass">
-<uml:Parameter name="classinfo" type="ClassInfo"/>
-<uml:Parameter name="list" type="List"/>
+<uml:Operation name="setWidth">
+<uml:Parameter name="int" type="int"/>
 </uml:Operation>
-<uml:Operation name="isSpecialMethod">
-<uml:Parameter name="string" type="String"/>
+<uml:Operation name="getWidth">
 </uml:Operation>
-<uml:Operation name="detectClassSmells">
-<uml:Parameter name="classinfo" type="ClassInfo"/>
-<uml:Parameter name="list" type="List"/>
+<uml:Operation name="getX">
 </uml:Operation>
-<uml:Operation name="detectMethodSmells">
-<uml:Parameter name="classinfo" type="ClassInfo"/>
-<uml:Parameter name="list" type="List"/>
+<uml:Operation name="setY">
+<uml:Parameter name="int" type="int"/>
 </uml:Operation>
-<uml:Operation name="detectLongMethod">
-<uml:Parameter name="classinfo" type="ClassInfo"/>
-<uml:Parameter name="methodinfo" type="MethodInfo"/>
-<uml:Parameter name="list" type="List"/>
+<uml:Operation name="draw">
+<uml:Parameter name="graphics" type="Graphics"/>
 </uml:Operation>
-<uml:Operation name="detectFeatureEnvy">
-<uml:Parameter name="classinfo" type="ClassInfo"/>
-<uml:Parameter name="methodinfo" type="MethodInfo"/>
-<uml:Parameter name="list" type="List"/>
+<uml:Operation name="setX">
+<uml:Parameter name="int" type="int"/>
 </uml:Operation>
-<uml:Operation name="cleanMethodBody">
-<uml:Parameter name="string" type="String"/>
-</uml:Operation>
-<uml:Operation name="detectLargeClass">
-<uml:Parameter name="classinfo" type="ClassInfo"/>
-<uml:Parameter name="list" type="List"/>
-</uml:Operation>
-<uml:Operation name="detectDataClass">
-<uml:Parameter name="classinfo" type="ClassInfo"/>
-<uml:Parameter name="list" type="List"/>
-</uml:Operation>
-<uml:Operation name="shouldSkipMethod">
-<uml:Parameter name="methodinfo" type="MethodInfo"/>
-</uml:Operation>
-<uml:Operation name="detectLazyClass">
-<uml:Parameter name="classinfo" type="ClassInfo"/>
-<uml:Parameter name="list" type="List"/>
-</uml:Operation>
-<uml:Operation name="levenshteinDistance">
-<uml:Parameter name="string" type="String"/>
-<uml:Parameter name="string" type="String"/>
-</uml:Operation>
-<uml:Operation name="detectDuplicateCode">
-<uml:Parameter name="project" type="Project"/>
-<uml:Parameter name="list" type="List"/>
-</uml:Operation>
-<uml:Operation name="calculateSimilarity">
-<uml:Parameter name="string" type="String"/>
-<uml:Parameter name="string" type="String"/>
+<uml:Operation name="getY">
 </uml:Operation>
 </uml:Class>
-<uml:Class name="BadSmellDetectorTest">
-<uml:Property name="smells" type="List"/>
-<uml:Operation name="lambda$0">
-<uml:Parameter name="badsmell" type="BadSmell"/>
+<uml:Class name="Screen">
+<uml:Property name="serialVersionUID" type="long"/>
+<uml:Property name="shapes" type="List"/>
+<uml:Property name="width" type="int"/>
+<uml:Property name="height" type="int"/>
+<uml:Operation name="add">
+<uml:Parameter name="shape" type="Shape"/>
 </uml:Operation>
-<uml:Operation name="detectFeatureEnvy">
+<uml:Operation name="getPreferdSize">
 </uml:Operation>
-<uml:Operation name="detectLongMethodTest">
+<uml:Operation name="paintComponent">
+<uml:Parameter name="graphics" type="Graphics"/>
 </uml:Operation>
-<uml:Operation name="detectDataClassTest">
+</uml:Class>
+<uml:Class name="ScreenFrame">
+<uml:Property name="screen" type="Screen"/>
+<uml:Operation name="main">
+<uml:Parameter name="string[]" type="String[]"/>
 </uml:Operation>
-<uml:Operation name="detectLargeClassTest">
+<uml:Operation name="userInterface">
 </uml:Operation>
-<uml:Operation name="detectLazyClassTest">
+<uml:Operation name="generateShapes">
 </uml:Operation>
-<uml:Operation name="lambda$4">
-<uml:Parameter name="badsmell" type="BadSmell"/>
+</uml:Class>
+<uml:Class name="Shape">
+<uml:Operation name="draw">
+<uml:Parameter name="graphics" type="Graphics"/>
 </uml:Operation>
-<uml:Operation name="lambda$1">
-<uml:Parameter name="badsmell" type="BadSmell"/>
+</uml:Class>
+<uml:Class name="StringTest">
+<uml:Property name="counter" type="int"/>
+<uml:Property name="word" type="String"/>
+<uml:Property name="data" type="String"/>
+<uml:Operation name="testStringBuffer">
 </uml:Operation>
-<uml:Operation name="lambda$3">
-<uml:Parameter name="badsmell" type="BadSmell"/>
+<uml:Operation name="testStringBuilder">
 </uml:Operation>
-<uml:Operation name="lambda$2">
-<uml:Parameter name="badsmell" type="BadSmell"/>
+<uml:Operation name="testString">
 </uml:Operation>
-<uml:Operation name="init">
+</uml:Class>
+<uml:Class name="TimeProcessing">
+<uml:Operation name="run">
+<uml:Parameter name="object" type="Object"/>
+</uml:Operation>
+</uml:Class>
+<uml:Class name="Writer">
+<uml:Property name="data" type="List"/>
+<uml:Operation name="run">
 </uml:Operation>
 </uml:Class>
 </uml:Package>

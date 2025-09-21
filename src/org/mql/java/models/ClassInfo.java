@@ -14,8 +14,10 @@ public class ClassInfo {
     private List<AnnotationInfo> annotations;
     private List<Relation> relations; 
     private int x, y;
+	private boolean isAbstract = false;
 
-    public ClassInfo(String name, boolean isInterface, boolean isEnum) {
+	
+	public ClassInfo(String name, boolean isInterface, boolean isEnum) {
         this.name = name;
         this.setInterface(isInterface);
         this.setEnum(isEnum);
@@ -138,6 +140,35 @@ public class ClassInfo {
 	    this.y = y;
 	}
 	
+	// Ajouter ces méthodes à votre classe ClassInfo
+
+	// Méthode pour obtenir la localisation sous forme de Point
+	public java.awt.Point getLocation() {
+	    return new java.awt.Point(x, y);
+	}
+
+	// Méthode pour définir la localisation avec un Point
+	public void setLocation(java.awt.Point location) {
+	    this.x = location.x;
+	    this.y = location.y;
+	}
+
+
+
+	// Méthode pour obtenir le nom de la superclasse (alias de getSuperclass)
+	public String getSuperClass() {
+	    return getSuperclass();
+	}
+
+	// Méthode pour définir la superclasse (alias de setSuperclass) 
+	public void setSuperClass(String superClass) {
+	    setSuperclass(superClass);
+	}
 	
+
+	public boolean isAbstract() { return isAbstract; }
+	public void setAbstract(boolean isAbstract) { this.isAbstract = isAbstract; }
+
+
 	
 }
